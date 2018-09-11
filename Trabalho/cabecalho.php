@@ -65,7 +65,7 @@
                                 </ul>
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-item"><?= "Olá! " . exibirUsername(); ?></a>
+                                        <span class="nav-item"><?= "Olá! " . exibirUsername(); ?></span>
                                     </li>
                                 </ul>
                             </div>
@@ -144,7 +144,7 @@
                         <div class = 'container'>
                             <a class = 'navbar-brand' href = 'http://localhost/Trabalho/index.php'><h3>SICC</h3></a>
                             <button class = 'navbar-toggler' type = 'button' data-toggle = 'collapse' data-target = '#navbarResponsive' aria-controls = 'navbarResponsive' aria-expanded = 'false' aria-label = 'Toggle navigation'>
-                                <span class{ = 'navbar-toggler-icon'></span>
+                                <span class = 'navbar-toggler-icon'></span>
                             </button>
                             <div class = 'collapse navbar-collapse' id = 'navbarResponsive'>
                                 <ul class = 'nav navbar-nav ml-auto'>
