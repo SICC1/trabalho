@@ -12,69 +12,93 @@ include '../cabecalho.php';
 ?>
 <h1 align="center">Confirmar cadastros de profissionais</h1>
 <div class="col-md-8 container-fluid" align="center">
-<table class="table-bordered table-active table-hover" border="1">
-    <tr>
-        <td>Nome</td><td>Data nasc.</td><td>Telefone</td><td>profissão</td><td>Depto</td><td>Excluir</td><td>Confirmar</td><td>Alterar</td>
-    </tr>
-    <?php
-    while ($linha = mysqli_fetch_array($resultado)) {
-        ?>
+    <table class="table-bordered table-active table-hover" border="1">
         <tr>
-            <input type="hidden" name="id" value="<?php $linha[id]?>">
-            <td><?= $linha['nome']?></td>
-            <td><?= $linha['data_nasc']?></td>
-            <td><?= $linha['telefone']?></td>
-            <td><?= $linha['profissao']?></td>
-            <td><?= $linha['depto']?></td>
-            
-            
-            
-            <div class='modal fade' id='modal_sucesso' role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Exclui.</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Seu pedido de cadastro foi enviado com sucesso. 
-                            Aguarde ele ser aprovado para poder entrar em sua conta.</p>
-                    </div>
-                    <div class="modal-footer">
-<!--                        <button class="btn btn-primary" type="submit">Confirmar</button>-->
-<button type="button" onclick="modal_excluir()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            <td>Nome</td><td>Data nasc.</td><td>Telefone</td><td>profissão</td><td>Depto</td><td>Excluir</td><td>Confirmar</td><td>Alterar</td>
+        </tr>
+        <?php
+        while ($linha = mysqli_fetch_array($resultado)) {
+            ?>
+            <tr>
+            <input type="hidden" name="id" value="<?php $linha[id] ?>">
+            <td><?= $linha['nome'] ?></td>
+            <td><?= $linha['data_nasc'] ?></td>
+            <td><?= $linha['telefone'] ?></td>
+            <td><?= $linha['profissao'] ?></td>
+            <td><?= $linha['depto'] ?></td>
+
+
+
+            <div class='modal fade' id='modal_excluir' role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Deseja realmente excluir?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Deseja excluir o pedido de cadastro do profissional?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" onclick="modal_excluir()" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <script>
-            
-    function ii(){
-    $('#documents').ready(function () {
-                $('#modal_sucesso').modal('show');
-            });
-        }
-            function modal_excluir() {
-    window.location = "excluir.php?id=<?= $linha['id_usuario']?>";
-}
-            
-        </script>
-            
-            <td>
-                <a href="">
-                    <img src="../img/excluir.jpeg" class="img-thumbnail" width="50" onclick="ii()"/></a>
-            </td>
-              
-              <td align="center">
-              <a href="confirmar.php?id=<?= $linha['id_usuario']?>">
-              <img src="../img/ativar.png" class="img-thumbnail" width="50"/></a>
-              </td>
-                
-                <td><a href="../cadastro_prof/form_alterar.php?id=<?= $linha['id_usuario']?>">
-                <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
-        </tr>
-    <?php
-}
-?>
+            <div class='modal fade' id='modal_confirmar' role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Deseja realmente confirmar?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Deseja confirmar o pedido de cadastro do profissional?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" onclick="modal_confirmar()" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
 
-</table>
+                function modalExluir() {
+                    $('#documents').ready(function () {
+                        $('#modal_excluir').modal('show');
+                    });
+                }
+                function modal_excluir() {
+                    window.location = "excluir.php?id=<?= $linha['id_usuario'] ?>";
+                }
+                
+                function modalConfirmar() {
+                    $('#documents').ready(function () {
+                        $('#modal_confirmar').modal('show');
+                    });
+                }
+                function modal_confirmar() {
+                    window.location = "confirmar.php?id=<?= $linha['id_usuario'] ?>";
+                }
+
+            </script>
+
+            <td>
+                <a>
+                    <img src="../img/excluir.jpeg" class="img-thumbnail" width="50" onclick="modalExluir()"/></a>
+            </td>
+
+            <td align="center">
+                <a>
+                    <img src="../img/ativar.png" class="img-thumbnail" width="50" onclick="modalConfirmar()"/></a>
+            </td>
+
+            <td><a href="../cadastro_prof/form_alterar.php?id=<?= $linha['id_usuario'] ?>">
+                    <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
+            </tr>
+            <?php
+        }
+        ?>
+
+    </table>
 </div>
