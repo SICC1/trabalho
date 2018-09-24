@@ -19,6 +19,7 @@ $cpf = $_POST['cpf'];
 $endereco = $_POST['endereco'];
 $cep = $_POST['cep'];
 $sexo = $_POST['sexo'];
+$profissao = $_POST['profissao'];
 //$sql = "select id from usuario where username = '$_SESSION[username]'";
 //
 //$retorno_id = pg_query($conexao, $sql);
@@ -35,14 +36,14 @@ $sql_usuario = "insert into usuario ( username, password) values ('$username', '
 $recurso_usuario = mysqli_query($conexao, $sql_usuario);
 
 $ultimo_id = mysqli_insert_id($conexao);
-
+echo $ultimo_id;
 if ($ultimo_id == 0) {
     $sql = "delete * from profissional where id_usuario = '$ultimo_id'";
 } else {
     $sql = "insert into profissional (nome, sobrenome, email, data_nasc, telefone, depto, id_usuario, celular, cargo, "
-            . "cpf, endereco, cep, sexo) values ('$nome', '$sobrenome', '$email','$data_nasc',$telefone,'$depto', $ultimo_id, $celular, '$cargo', '$cpf', '$endereco', "
-            . " '$cep', '$sexo' )";
-
+            . "cpf, endereco, cep, sexo, profissao, dia_hora_cadastrado) values ('$nome', '$sobrenome', '$email','$data_nasc',$telefone,'$depto', $ultimo_id, $celular, '$cargo', '$cpf', '$endereco', "
+            . " '$cep', '$sexo', '$profissao', now())";
+    echo $sql;
     mysqli_query($conexao, $sql);
 }
 

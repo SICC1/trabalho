@@ -5,13 +5,17 @@ include '../cabecalho.php';
     
     <form method="post" action="inserir.php">
         <div class="form-row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-4 mb-3">
                 <label>Nome</label>
                 <input type="text" name="nome" class="form-control" placeholder="Primeiro Nome" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>Sobrenome</label>
                 <input type="text" name="sobrenome" class="form-control" placeholder="Sobrenome" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Profissão</label>
+                <input type="text" name="profissao" class="form-control" placeholder="Profissão" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>Username</label>

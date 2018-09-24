@@ -84,11 +84,15 @@ $linha = mysqli_fetch_array($resultado);
                 <input type="text" name="cargo" class="form-control" id="validationDefault04" value="<?= $linha['cargo'] ?>" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label>CEP</label>
-                <input type="text" name="cep" class="form-control" value="<?= $linha['cep'] ?> " required>
+                <label>Profissão</label>
+                <input type="text" name="profissao" class="form-control" value="<?= $linha['profissao'] ?> " required>
             </div>
         </div>
         <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label>CEP</label>
+                <input type="text" name="cep" class="form-control" value="<?= $linha['cep'] ?> " required>
+            </div>
             <div class="col-md-4 mb-3">
                 <label>Endereço</label>
                 <input type="text" name="endereco" class="form-control" id="validationDefault04" value="<?= $linha['endereco'] ?>" required>

@@ -28,7 +28,7 @@ include '../cabecalho.php';
                 </label>
             </div>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Cadastrar-se</button>
-            <button type="reset" value="Limpar campos"></button>
+            <button type="reset" class="btn btn-default" value="Limpar campos">Limpar Campos</button>
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
@@ -45,8 +45,8 @@ include '../cabecalho.php';
                     </div>
                 </div>
             </div>
-    </form>
 </div>
+</form>
 
         <?php
         //include 'listar.php';

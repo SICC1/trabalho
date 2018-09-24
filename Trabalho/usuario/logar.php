@@ -19,7 +19,7 @@ $resultado = mysqli_fetch_array($retorno);
 if ($resultado == null) {
 ?><?php echo " 
  <div class='alert alert-danger'>
-  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+  <p align='center'> <strong>Erro!</strong> Usuário não cadastrado, se você se cadastrou aguarde a confirmação da sua conta.</p>
 </div> ";
  include_once '../index.php';
 } else {
