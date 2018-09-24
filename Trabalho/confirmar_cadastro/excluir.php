@@ -13,8 +13,8 @@ mysqli_query($conexao, $sql_pessoa);
 
 echo $sql_pessoa;
 
-//if (mysqli_affected_rows($conexao) > 0) {
-//    header('Location: ./modal_sucesso_excluir.php');
-//} else {
-//    header('Location: ./modal_erro_excluir.php');
-//}
+if (mysqli_affected_rows($conexao) > 0) {
+    header('Location: ./modal_sucesso_excluir.php');
+} else {
+    header('Location: ./modal_erro_excluir.php');
+}
