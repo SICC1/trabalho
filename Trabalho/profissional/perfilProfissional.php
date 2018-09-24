@@ -15,7 +15,7 @@ $resultado = mysqli_query($conexao, $sql);
 ?>
 <h1 align="center">Dados do seu perfil</h1>
 <div class="col-md-8 container-fluid" align="center">
-    <table class="table-bordered table-hover" border="1">
+<!--    <table class="table-bordered table-hover" border="1">
         <tr>
             <td>Nome</td><td>Sobrenome</td><td>Data nasc.</td><td>Telefone</td><td>Depto</td><td>Excluir</td><td>Alterar</td>
         </tr>
@@ -34,11 +34,9 @@ $resultado = mysqli_query($conexao, $sql);
                     <td><a href="form_alterar.php?id=<?= $linha['id_usuario'] ?>">
                     <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
             </tr>
-            <?php
-        }
-        ?>
+            
 
-    </table>
+    </table>-->
     <form method="post" action="alterar.php">
         <input type="hidden" name="id" value="<?= $id ?>">
         <input type="hidden" name="id_usuario" value="<?= $linha['id_usuario'] ?>">
@@ -111,11 +109,15 @@ $resultado = mysqli_query($conexao, $sql);
                 <input type="text" name="cargo" class="form-control" id="validationDefault04" value="<?= $linha['cargo'] ?>" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label>CEP</label>
-                <input type="text" name="cep" class="form-control" value="<?= $linha['cep'] ?> " required>
+                <label>Profissão</label>
+                <input type="text" name="profissao" class="form-control" value="<?= $linha['profissao'] ?> " required>
             </div>
         </div>
         <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label>CEP</label>
+                <input type="text" name="cep" class="form-control" value="<?= $linha['cep'] ?> " required>
+            </div>
             <div class="col-md-4 mb-3">
                 <label>Endereço</label>
                 <input type="text" name="endereco" class="form-control" id="validationDefault04" value="<?= $linha['endereco'] ?>" required>
@@ -133,10 +135,10 @@ $resultado = mysqli_query($conexao, $sql);
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Confirmar alteração</h4>
+                            <h4 class="modal-title">Confirmar alteração.</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Enviar registros.</p>
+                            <p>Deseja realmente alterar seus dados?</p>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="submit">Confirmar</button>
@@ -147,4 +149,7 @@ $resultado = mysqli_query($conexao, $sql);
             </div>
         </div>
     </form>
+    <?php
+        }
+        ?>
 </div>
