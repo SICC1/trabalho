@@ -27,14 +27,50 @@ include '../cabecalho.php';
             <td><?= $linha['profissao']?></td>
             <td><?= $linha['depto']?></td>
             
-            <td><a href="excluir.php?id=<?= $linha['id_usuario']?>">
-                    <img src="../img/excluir.jpeg" class="img-thumbnail" width="50"/></a></td>
+            
+            
+            <div class='modal fade' id='modal_sucesso' role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Exclui.</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Seu pedido de cadastro foi enviado com sucesso. 
+                            Aguarde ele ser aprovado para poder entrar em sua conta.</p>
+                    </div>
+                    <div class="modal-footer">
+<!--                        <button class="btn btn-primary" type="submit">Confirmar</button>-->
+<button type="button" onclick="modal_excluir()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+    function ii(){
+    $('#documents').ready(function () {
+                $('#modal_sucesso').modal('show');
+            });
+        }
+            function modal_excluir() {
+    window.location = "excluir.php?id=<?= $linha['id_usuario']?>";
+}
+            
+        </script>
+            
+            <td>
+                <a href="">
+                    <img src="../img/excluir.jpeg" class="img-thumbnail" width="50" onclick="ii()"/></a>
+            </td>
               
-              <td align="center"><a href="confirmar.php?id=<?= $linha['id_usuario']?>">
-                      <img src="../img/ativar.png" class="img-thumbnail" width="50"/></a></td>
+              <td align="center">
+              <a href="confirmar.php?id=<?= $linha['id_usuario']?>">
+              <img src="../img/ativar.png" class="img-thumbnail" width="50"/></a>
+              </td>
                 
                 <td><a href="../cadastro_prof/form_alterar.php?id=<?= $linha['id_usuario']?>">
-                        <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
+                <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
         </tr>
     <?php
 }

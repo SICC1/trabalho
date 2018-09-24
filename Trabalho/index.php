@@ -17,6 +17,7 @@ include 'rodape.php';
         </nav>
         <h3 class='text-muted'></h3>
     </div>
+
     <div class="row">
         <div class="col-md-1">.col-md-1</div>
         <div class="col-md-1">.col-md-1</div>
