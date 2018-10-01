@@ -28,7 +28,6 @@ include '../cabecalho.php';
             <td><?= $linha['depto'] ?></td>
 
 
-
             <div class='modal fade' id='modal_excluir' role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">

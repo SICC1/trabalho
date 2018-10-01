@@ -33,6 +33,29 @@ descricao varchar(100),
 data_trab int
 );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- selecionar a tabela -- 
 select * from usuario;
 select * from profissional;
