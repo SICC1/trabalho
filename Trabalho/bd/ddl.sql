@@ -34,14 +34,14 @@ data_trab int
 );
 
 
+select now();
+SELECT DATE_FORMAT(now(), "%W %M %e %Y");
 
 
 
 
 
-
-
-
+SELECT DATE_FORMAT("2017-06-15", "%m %d %Y");
 
 
 

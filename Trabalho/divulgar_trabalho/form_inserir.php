@@ -1,8 +1,17 @@
 <?php
 include '../cabecalho.php';
+include '../bd/conectar.php';
+
+$sql = "SELECT DATE_FORMAT(now(), '%m %d %Y') as data";
+
+$resultado = mysqli_query($conexao, $sql);
+
+$linha = mysqli_fetch_array($resultado);
+
 ?>
 <div class="col-md-8 container-fluid" id="div-cor1">
     <form method="post" action="inserir.php">
+        <input type="hidden" name="id_usuario">
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Nome</label>
@@ -10,7 +19,7 @@ include '../cabecalho.php';
             </div>
             <div class="col-md-4 mb-3">
                 <label>Data</label>
-                <input type="date" name="data" class="form-control" required>
+                <input type="text" disabled="true" name="data" placeholder="<?=  $linha['data'];  ?>" class="form-control" required>
             </div>    
         </div>
         <div class="form-row">
