@@ -101,3 +101,6 @@ include '../cabecalho.php';
 
     </table>
 </div>
+<?php 
+        include_once '../rodape.php';
+?>

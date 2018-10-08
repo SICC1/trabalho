@@ -30,7 +30,7 @@ id int primary key auto_increment,
 id_usuario int references usuario(id),
 nome varchar(100),
 descricao varchar(100),
-data_trab int
+data_trab datetime
 );
 
 
@@ -38,22 +38,7 @@ select now();
 SELECT DATE_FORMAT(now(), "%W %M %e %Y");
 
 
-
-
-
 SELECT DATE_FORMAT("2017-06-15", "%m %d %Y");
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 -- selecionar a tabela -- 

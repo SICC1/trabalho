@@ -1,7 +1,7 @@
 <?php
 include '../cabecalho.php';
 ?>  
-<div class="col-md-8 container-fluid" id="div-cor1">
+<div class="col-md-8 container-fluid" id="div-cor2">
     
     <form method="post" action="inserir.php">
         <div class="form-row">

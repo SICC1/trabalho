@@ -6,8 +6,7 @@ include '../bd/conectar.php';
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM usuario, profissional USING usuario, profissional WHERE "
-        . "usuario.id = $id AND profissional.id_usuario = $id";
+$sql = "DELETE FROM usuario where id= '$id'";
 
 mysqli_query($conexao, $sql);
 

@@ -122,12 +122,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
                 </div>
             </div>
             <div align="center" class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                    <label class="form-check-label" for="invalidCheck2">
-                        Aceitar os Termos e as Condições
-                    </label>
-                </div>
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Alterar Dados</button>
                 <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-sm">
@@ -151,7 +145,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
     <div align="center" class="form-group">
         
         
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_excluir">Exluir conta</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_excluir">Excluir conta</button>
         
         <div class="modal fade" id="modal_excluir" role="dialog">
             <div class="modal-dialog modal-sm">

@@ -32,14 +32,16 @@ $sql_usuario = "insert into usuario ( username, password) values ('$username', '
 //echo $sql_usuario;
 //$ultimo_id = "select max(id) from usuario";
 
-
+echo $sql_usuario;
 $recurso_usuario = mysqli_query($conexao, $sql_usuario);
 
 $ultimo_id = mysqli_insert_id($conexao);
+echo $ultimo_id;
 
 if ($ultimo_id == 0) {
-    $sql = "delete * from usuario where id = '$ultimo_id'";
+    $sql = "delete from usuario where username = '$username'";
     mysqli_query($conexao, $sql);
+    echo $sql;
 } else {
     $sql = "insert into profissional (nome, sobrenome, email, data_nasc, telefone, depto, id_usuario, celular, cargo, "
             . "cpf, endereco, cep, sexo, profissao, dia_hora_cadastrado) values ('$nome', '$sobrenome', '$email','$data_nasc',$telefone,'$depto', $ultimo_id, $celular, '$cargo', '$cpf', '$endereco', "
