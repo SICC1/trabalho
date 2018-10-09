@@ -4,7 +4,7 @@ ini_set("display_errors", true);
 
 include '../bd/conectar.php';
 
-$id = $_GET['id_trabalho'];
+$id = $_GET['id'];
 
 $sql_trabalho = "delete from trabalho where id = $id";
 

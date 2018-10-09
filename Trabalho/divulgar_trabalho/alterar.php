@@ -2,6 +2,7 @@
 
 $id = $_POST['id'];
 $nome = $_POST['nome'];
+$data_trab = $_POST['data_trab'];
 
 include '../bd/conectar.php';
 

@@ -9,6 +9,7 @@ $sql = "SELECT now() as data";
 $resultado = mysqli_query($conexao, $sql);
 
 $linha = mysqli_fetch_array($resultado);
+
 ?>
 <div class="col-md-8 container-fluid" id="div-cor2">
     <form method="post" action="inserir.php">
