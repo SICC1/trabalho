@@ -33,6 +33,17 @@ descricao varchar(100),
 data_trab datetime
 );
 
+create table comentario(
+id int primary key auto_increment,
+id_trabalho int references trabalho(id),
+nome varchar(100),
+telefone int,
+email varchar(100),
+descricao varchar(300),
+data_inserida datetime
+);
+
+drop table comentario;
 
 select now();
 SELECT DATE_FORMAT(now(), "%W %M %e %Y");
@@ -45,12 +56,14 @@ SELECT DATE_FORMAT("2017-06-15", "%m %d %Y");
 select * from usuario;
 select * from profissional;
 select * from trabalho;
+select * from comentario;
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Excluir tabelas; --
 drop table usuario;
 drop table profissional;
 drop table trabalho;
+drop table comentario;
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Inserção da tabela --

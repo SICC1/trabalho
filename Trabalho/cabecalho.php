@@ -58,7 +58,6 @@
                         </div>
                     </div>
                 </nav>
-            </div>
         <?php } else {
             ?>
                 <!--Navigation -->
@@ -131,14 +130,5 @@
         <?php
     }
     ?>
-    <!--
-                echo "<a href='http://localhost/Trabalho/usuario/form_login.php'>Login</a>";
-                echo "<a href='http://localhost/Trabalho/cadastro_prof/form_inserir.php'>Cadastro de Prof.</a>";
-    
-    ;-->
     <script src="http://localhost/Trabalho/css_jv/jquery.min.js"></script>
     <script src="http://localhost/Trabalho/css_jv/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>

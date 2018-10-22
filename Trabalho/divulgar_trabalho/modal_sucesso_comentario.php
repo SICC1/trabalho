@@ -1,5 +1,5 @@
 <?php 
-include_once './form_inserir.php';
+include_once './listar.php';
 ?>
 <html>
     <head>
@@ -9,10 +9,7 @@ include_once './form_inserir.php';
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Parbéns, divulgação feita com sucesso.</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Divulgação feita com sucesso! Acesse a área de trabalhos divulgados para ver sua publicação.</p>
+                        <h4 class="modal-title">Parbéns, divulgação do comentário feita com sucesso.</h4>
                     </div>
                     <div class="modal-footer">
 <!--                        <button class="btn btn-primary" type="submit">Confirmar</button>-->
@@ -27,7 +24,7 @@ include_once './form_inserir.php';
             });
             
             function redirecionar() {
-    window.location = "form_inserir.php";
+    window.location = "listar.php";
 }
             
         </script>
