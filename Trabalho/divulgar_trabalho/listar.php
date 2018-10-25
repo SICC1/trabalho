@@ -13,9 +13,6 @@ if (estaLogado() == TRUE) {
 
 $sql = "select id as id_trabalho, nome, descricao, id_usuario, data_trab from trabalho order by id desc";
 $resultado = mysqli_query($conexao, $sql);
-
-$sql_comentario = "select * from comentario where id = id_trabalho";
-$resultado_comentario = mysqli_query($conexao, $sql_comentario);
 ?>
 <?php
 while ($linha = mysqli_fetch_array($resultado)) {
@@ -43,6 +40,8 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                 <div class="col-12">
                                     <hr>
                                     <button class="btn btn-primary" type="button" onclick="Mudarestado('minhaDiv<?= $linha['id_trabalho'] ?>')">Comentar</button>
+                                </div>
+                                <div class="col-12">
                                     <div id="minhaDiv<?= $linha['id_trabalho'] ?>" style="display: none">
                                         <div class="col-md-8 container-fluid" id="div-cor2">
                                             <form method="post" action="inserir_comentario.php" name="nome<?= $linha['id_trabalho'] ?>">
@@ -98,20 +97,29 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                     </div>
                                     <div class="col-12" name="naame<?= $linha['id_trabalho'] ?>">
                                         <h3>Comentários</h3>
-                                        <?php
-                                        while ($linha_comentario = mysqli_fetch_array($resultado_comentario)) {
-                                            ?>
-                                            <div class="row">
-                                                <div class="col-8"><?= $linha_comentario['nome'] ?></div>
-                                                <div class="col-4"><label>Data: </label><?= " " . $linha_comentario['data_inserida'] ?></div>    
-                                                <div class="col-12">
-                                                    <a><?= $linha_comentario['descricao'] ?> </a>
-                                                </div>
-                                            </div>
+                                        <div class="row">
                                             <?php
-                                        }
-                                        ?>
+                                            $id_trabalho = $linha['id_trabalho'];
+
+                                            $sql_comentario = "select * from comentario where id_trabalho = $id_trabalho";
+                                            $resultado_comentario = mysqli_query($conexao, $sql_comentario);
+                                            ?>
+                                            <?php
+                                            while ($linha_comentario = mysqli_fetch_array($resultado_comentario)) {
+                                                ?>
+                                            <div class="row col-12" name="nome<?php $linha['id_trabalho'] ?>">
+                                                    <div class="col-8"><?= 'Nome:' . " " . $linha_comentario['nome'] ?></div>
+                                                    <div class="col-4"><label>Data: </label><?= " " . $linha_comentario['data_inserida'] ?></div>    
+                                                    <div class="col-12">
+                                                        <a><?= $linha_comentario['descricao'] ?> </a>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                             <hr>
@@ -122,19 +130,33 @@ while ($linha = mysqli_fetch_array($resultado)) {
             <div class="col-sm-2 sidenav">
                 <br /> 
                 <?php
-                if ($linha['id_usuario'] == $_SESSION['id']) {
-                    ?>
-                    <div class="col-1">
-                        <p>
-                            <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
-                        </p>
-                    </div>
-                    <div class="well">
-                    </div>
+                if (estaLogado()) {
+                    if (exibirUsername() == 'admin') {
+                        ?>
+                        <div class="col-1">
+                            <p>
+                                <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
+                            </p>
+                        </div>
+                        <div class="well">
+                        </div>
 
-                    <?php
+                        <?php
+                    } else {
+                        ?>
+                        <div class="col-1">
+                            <p>
+                                <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
+                            </p>
+                        </div>
+                        <div class="well">
+                        </div>
+
+                        <?php
+                    }
                 }
                 ?>
+
             </div>
         </div>
     </div>

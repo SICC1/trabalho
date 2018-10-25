@@ -16,7 +16,6 @@
     <body>
         <?php
         require_once 'usuario/autenticacao.php';
-
         if (estaLogado()) {
             if (exibirUsername() == 'admin') {
                 ?>
