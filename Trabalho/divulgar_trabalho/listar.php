@@ -3,7 +3,7 @@ include_once '../cabecalho.php';
 include_once '../bd/conectar.php';
 
 if (estaLogado() == TRUE) {
-    
+
 } else {
     error_reporting(0);
     ini_set("display_errors", 0);
@@ -13,18 +13,23 @@ if (estaLogado() == TRUE) {
 
 $sql = "select id as id_trabalho, nome, descricao, id_usuario, data_trab from trabalho order by id desc";
 $resultado = mysqli_query($conexao, $sql);
+
+//pegando o admin para fazer a comparação se ele é ou não usuario
+$retorno_admin = "select admin from usuario where id = $_SESSION[id]";
+$sql_retorno_admin = mysqli_query($conexao, $retorno_admin);
+$linha_admin = mysqli_fetch_array($sql_retorno_admin);
 ?>
 <?php
 while ($linha = mysqli_fetch_array($resultado)) {
     ?>
-    <div class="container-fluid text-center">    
+    <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
         <!--      <p><a href="#">Link</a></p>
               <p><a href="#">Link</a></p>
               <p><a href="#">Link</a></p>-->
             </div>
-            <div class="col-sm-8 text-left"> 
+            <div class="col-sm-8 text-left">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -32,7 +37,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
                             <hr>
                             <div class="row">
                                 <div class="col-9"><h1><?= $linha['nome'] ?></h1></div>
-                                <div class="col-3"><label>Data: </label><?= " " . $linha['data_trab'] ?></div>    
+                                <div class="col-3"><label>Data: </label><?= " " . $linha['data_trab'] ?></div>
                                 <div class="col-12">
                                     <a><?= $linha['descricao'] ?> </a>
                                 </div>
@@ -100,20 +105,33 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                         <div class="row">
                                             <?php
                                             $id_trabalho = $linha['id_trabalho'];
-
-                                            $sql_comentario = "select * from comentario where id_trabalho = $id_trabalho";
+                                            $sql_comentario = "select id, id_trabalho, nome, data_inserida, descricao from comentario where id_trabalho = $id_trabalho order by data_inserida desc";
                                             $resultado_comentario = mysqli_query($conexao, $sql_comentario);
                                             ?>
                                             <?php
                                             while ($linha_comentario = mysqli_fetch_array($resultado_comentario)) {
                                                 ?>
-                                            <div class="row col-12" name="nome<?php $linha['id_trabalho'] ?>">
-                                                    <div class="col-8"><?= 'Nome:' . " " . $linha_comentario['nome'] ?></div>
-                                                    <div class="col-4"><label>Data: </label><?= " " . $linha_comentario['data_inserida'] ?></div>    
-                                                    <div class="col-12">
-                                                        <a><?= $linha_comentario['descricao'] ?> </a>
+                                                <div class="row col-12 container-fluid" name="nome<?php $linha['id'] ?>">
+                                                    <div class="col-7"><?= 'Nome:' . " " . $linha_comentario['nome'] ?></div>
+                                                    <div class="col-4"><label>Data: </label><?= " " . $linha_comentario['data_inserida'] ?></div>
+                                                    <div class="col-1">
+                                                        <?php
+                                                        if (estaLogado()) {
+                                                            ?>
+                                                            <a href="form_alterar_comentario.php?id=<?= $linha_comentario['id']; ?>">
+                                                                <img height="15" lang="15" src="../img/configurar.png">
+                                                            </a>
+                                                            <?php
+                                                        }
+                                                        ?>
+
                                                     </div>
+                                                    <div class="col-12">
+                                                        <a><?= $linha_comentario['descricao'] ?></a>
+                                                    </div>
+                                                    <hr>
                                                 </div>
+
                                                 <?php
                                             }
                                             ?>
@@ -128,32 +146,31 @@ while ($linha = mysqli_fetch_array($resultado)) {
                 </div>
             </div>
             <div class="col-sm-2 sidenav">
-                <br /> 
+
                 <?php
-                if (estaLogado()) {
-                    if (exibirUsername() == 'admin') {
-                        ?>
-                        <div class="col-1">
-                            <p>
-                                <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
-                            </p>
-                        </div>
-                        <div class="well">
-                        </div>
+                if ($linha_admin['admin'] == 2) {
+                    ?>
+                    <div class="col-1">
+                        <p>
+                            <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
+                        </p>
+                    </div>
+                    <div class="well">
+                    </div>
 
-                        <?php
-                    } else {
-                        ?>
-                        <div class="col-1">
-                            <p>
-                                <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
-                            </p>
-                        </div>
-                        <div class="well">
-                        </div>
+                    <?php
+                }
+                if ($linha['id_usuario'] == $_SESSION[id] && $linha_admin['admin'] != 2) {
+                    ?>
+                    <div class="col-1">
+                        <p>
+                            <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
+                        </p>
+                    </div>
+                    <div class="well">
+                    </div>
 
-                        <?php
-                    }
+                    <?php
                 }
                 ?>
 
