@@ -13,7 +13,6 @@ if (estaLogado() == TRUE) {
 
 $sql = "select id as id_trabalho, nome, descricao, id_usuario, data_trab from trabalho order by id desc";
 $resultado = mysqli_query($conexao, $sql);
-
 //pegando o admin para fazer a comparação se ele é ou não usuario
 $retorno_admin = "select admin from usuario where id = $_SESSION[id]";
 $sql_retorno_admin = mysqli_query($conexao, $retorno_admin);

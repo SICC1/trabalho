@@ -1,4 +1,48 @@
 <style>
+    body{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    /* Gera um quadrado responsivo. */
+    .square{
+        width: 48%;
+        height: 0; /* A mágica está aqui */
+        padding-bottom: 48%; /* ... e está aqui */
+        margin: 1%;
+        float: left;
+        position: relative;
+    }
+
+    .block{
+        position: absolute;
+        text-align: center;
+        background: #1a1a1a;
+        width: 100%;
+        height: 100%;
+    }
+
+    .block:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+
+    .centered {
+        display: inline-block;
+        vertical-align: middle;
+        width: 80%;
+        background: #222;
+        color: #FFF;
+    }
+
+
+
+
+
+
+
+
     #meubody{
         background-color: #cccccc;
     }
