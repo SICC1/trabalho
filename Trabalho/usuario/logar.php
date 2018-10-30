@@ -1,4 +1,5 @@
 <?php
+
 include './autenticacao.php';
 
 ini_set("display_errors", true);
@@ -17,15 +18,16 @@ $retorno = mysqli_query($conexao, $sql);
 $resultado = mysqli_fetch_array($retorno);
 
 if ($resultado == null) {
-?><?php echo " 
+
+    echo "
  <div class='alert alert-danger'>
   <p align='center'> <strong>Erro!</strong> Usuário não cadastrado, se você se cadastrou aguarde a confirmação da sua conta.</p>
 </div> ";
- include_once '../index.php';
+    include_once '../index.php';
 } else {
-logar($resultado['username'], $resultado['id'], $resultado['admin']);
+    logar($resultado['username'], $resultado['id'], $resultado['admin']);
 
-header('Location: ../index.php');
+    header('Location: ../index.php');
 }
 
 
