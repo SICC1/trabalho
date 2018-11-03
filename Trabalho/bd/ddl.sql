@@ -48,11 +48,11 @@ drop table comentario;
 select now();
 SELECT DATE_FORMAT(now(), "%W %M %e %Y");
 
-
+select * from usuario where admin = 2
 SELECT DATE_FORMAT("2017-06-15", "%m %d %Y");
 
 
--- selecionar a tabela -- 
+-- selecionar a tabela --
 select * from usuario;
 select * from profissional;
 select * from trabalho;
@@ -76,7 +76,7 @@ select * from profissional;
 select * from usuario, profissional where usuario.id = profissional.id_usuario;
 
 
-DELETE FROM usuario, profissional USING usuario, profissional 
+DELETE FROM usuario, profissional USING usuario, profissional
 WHERE usuario.id = 2 AND profissional.id_usuario = 2
 
 --update usuario set admin=1 where id= 2;

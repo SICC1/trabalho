@@ -1,4 +1,8 @@
-
+<?php
+include_once './bd/conectar.php';
+include_once 'config.php';
+//error_reporting(0);
+?>
 <head>
     <meta lang="br">
     <meta charset="UTF-8">
@@ -6,11 +10,11 @@
     <meta name="Cabeçalho">
     <meta name="Iago Ramos dos Santos">
     <title>SICC - Sistema de Integração e Comunicação com a Comunidade</title>
-    <link href="<?= $url ?>/Trabalho/css_jv/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= $url ?>/Trabalho/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= $url ?>/Trabalho/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $url ?>/Trabalho/css_jv/bootstrap-grid.css">
-    <link rel="stylesheet" href="<?= $url ?>/Trabalho/css_menu_bootstrap_3.3.7/bootstrap3.3.7.php">
+    <link href="<?php echo $url; ?>/css_jv/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= $url ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= $url ?>/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= $url ?>/css_jv/bootstrap-grid.css">
+    <link rel="stylesheet" href="<?= $url ?>/css_menu_bootstrap_3.3.7/bootstrap3.3.7.php">
 </head>
 <body id="meubody">
     <?php

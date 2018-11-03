@@ -1,9 +1,7 @@
 <?php
 include '../bd/conectar.php';
 
-ini_set("display_errors", true);
-
-
+//ini_set("display_errors", true);
 //$sql = "select curso.id, curso.nome from curso join usuario on usuario.id = curso.usuario_id where usuario.username = '$_SESSION[username]'";
 
 $sql = "select * from usuario, profissional where usuario.id = profissional.id_usuario and admin = 0";
@@ -63,16 +61,16 @@ include '../cabecalho.php';
             <script>
 
                 function modalExluir() {
-                    $('#documents').ready(function () {
+                    $('#documents').ready(function() {
                         $('#modal_excluir').modal('show');
                     });
                 }
                 function modal_excluir() {
                     window.location = "excluir.php?id=<?= $linha['id_usuario'] ?>";
                 }
-                
+
                 function modalConfirmar() {
-                    $('#documents').ready(function () {
+                    $('#documents').ready(function() {
                         $('#modal_confirmar').modal('show');
                     });
                 }
@@ -98,9 +96,8 @@ include '../cabecalho.php';
             <?php
         }
         ?>
-
     </table>
 </div>
-<?php 
-        include_once '../rodape.php';
+<?php
+include_once '../rodape.php';
 ?>

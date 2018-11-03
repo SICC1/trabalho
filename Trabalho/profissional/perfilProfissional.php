@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', true);
+//ini_set('display_errors', true);
 include '../bd/conectar.php';
 include '../cabecalho.php';
 
@@ -17,24 +17,24 @@ $resultado = mysqli_query($conexao, $sql);
         <tr>
             <td>Nome</td><td>Sobrenome</td><td>Data nasc.</td><td>Telefone</td><td>Depto</td><td>Excluir</td><td>Alterar</td>
         </tr>
-<?php
-while ($linha = mysqli_fetch_array($resultado)) {
-    ?>
-                <tr>
-                <input type="hidden" name="id" value="<?php $linha[id] ?>">
-                <td><?= $linha['nome'] ?></td>
-                <td><?= $linha['data_nasc'] ?></td>
-                <td><?= $linha['telefone'] ?></td>
-                <td><?= $linha['depto'] ?></td>
+    <?php
+    while ($linha = mysqli_fetch_array($resultado)) {
+        ?>
+                        <tr>
+                        <input type="hidden" name="id" value="<?php $linha[id] ?>">
+                        <td><?= $linha['nome'] ?></td>
+                        <td><?= $linha['data_nasc'] ?></td>
+                        <td><?= $linha['telefone'] ?></td>
+                        <td><?= $linha['depto'] ?></td>
 
-                <td><a href="excluir.php?id=<?= $linha['id'] ?>">
-                        <img src="../img/excluir.jpeg" class="img-thumbnail" width="50"/></a></td>          
-                        <td><a href="form_alterar.php?id=<?= $linha['id_usuario'] ?>">
-                        <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
-                </tr>
-                
+                        <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                                <img src="../img/excluir.jpeg" class="img-thumbnail" width="50"/></a></td>
+                                <td><a href="form_alterar.php?id=<?= $linha['id_usuario'] ?>">
+                                <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
+                        </tr>
 
-        </table>-->
+
+                </table>-->
         <form method="post" action="alterar.php">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="id_usuario" value="<?= $linha['id_usuario'] ?>">
@@ -73,7 +73,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
                 <div class="col-md-4 mb-3">
                     <label>CPF</label>
                     <input type="cpf" name="cpf" class="form-control" value="<?= $linha['cpf'] ?>" required>
-                </div>  
+                </div>
                 <div class="col-md-4 mb-3">
                     <label for="sexo">Sexo</label>
                     <br>
@@ -124,52 +124,53 @@ while ($linha = mysqli_fetch_array($resultado)) {
             <div align="center" class="form-group">
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Alterar Dados</button>
                 <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Confirmar alteração.</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Deseja realmente alterar seus dados?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Confirmar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-            </div>
-            </form>
-            
-    <div align="center" class="form-group">
-        
-        
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_excluir">Excluir conta</button>
-        
-        <div class="modal fade" id="modal_excluir" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Confirmar exclusão.</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Tem certeza que deseja realmente excluir?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="button" onclick="excluir_perfil()">Confirmar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirmar alteração.</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Deseja realmente alterar seus dados?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Confirmar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <script>
-            function excluir_perfil() {
-                window.location = "excluir_perfil.php?id=<?= $linha['id'] ?>";
-            }
-        </script>
+        </form>
 
-    <?php
-}
-?>
+        <div align="center" class="form-group">
+
+
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_excluir">Excluir conta</button>
+
+            <div class="modal fade" id="modal_excluir" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirmar exclusão.</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Tem certeza que deseja realmente excluir?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button" onclick="excluir_perfil()">Confirmar</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function excluir_perfil() {
+                    window.location = "excluir_perfil.php?id=<?= $linha['id'] ?>";
+                }
+            </script>
+
+            <?php
+        }
+        ?>
+    </div>
 </div>

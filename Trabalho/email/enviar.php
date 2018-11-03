@@ -1,42 +1,45 @@
 <?php
 
+require_once '../PHPMailer-6.0.5/src/PHPMailer.php';
+require_once '../PHPMailer-6.0.5/src/Exception.php';
+require_once '../PHPMailer-6.0.5/src/SMTP.php';
+require_once '../PHPMailer-6.0.5/src/POP3.php';
+require_once '../PHPMailer-6.0.5/src/OAuth.php';
+require_once '../PHPMailer-6.0.5/src/class.phpmailer.php';
+require_once '../PHPMailer-6.0.5/src/class.smtp.php';
+require_once '../PHPMailer-6.0.5/src/PHPMailerAutoload.php';
+
+$nome_admin = $_POST['nome_admin'];
+$email_destinatario = 'siccsistema@gmail.com';
+$nome_usuario = $_POST['nome'];
+$senha_usuario = $_POST['senha'];
+$email = $_POST['email'];
+$descricao = $_POST['descricao'];
+
 $message = "
-<h3>Olá $nome,seu cadastro foi concluído</h3><br/>
-    <p><b>Username: $username</b></p>
-    <p><b>Nome: $nome</b></p>
-    <p><b>Idade: $idade</b></p>
-    <p><b>Rua: $rua</b></p>
-    <p><b>Bairro: $bairro</b></p>
-    <p><b>Numero: $numero</b></p>
-    <p><b>Complemento: $complemento</b></p>
-    <p><b>Cidade: $cidade</b></p>
-    <p><b>Estado: $estado</b></p>
+    <p><b>Nome: $nome_usuario</b></p>
     <p><b>E-mail: $email</b></p>
-    <p><b>Telefone: $telefone</b></p>
-    <p><b>RG: $rg</b></p>
-    <p><b>CPF: $cpf</b></p>
+    <p><b>Mensagem: $descricao</b></p>
 ";
 
-
-$mail = new PHPMailer;
+$mail = new PHPMailer();
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
-$mail->Username = 'sistemacandidatoempresa@gmail.com';
-$mail->Password = 'candidato123';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
-$mail->IsHTML(true);
-$mail->From = 'sistemacandidatoempresa@gmail.com';
-$mail->FromName = 'Sistema do candidato';
-
-$mail->addAddress($email, $nome);
-$mail->Subject = 'Sistema de candidato';
-
+$mail->SMTPAuth = TRUE;
+$mail->SMTPDebug = 1;
+$mail->SMTPAutoTLS = FALSE;
+$mail->SMTPSecure = 'ssl';
+$mail->Username = 'siccsistema@gmail.com';
+$mail->Password = 'sicc12345';
+$mail->Port = 465;
+$mail->addAddress($email_destinatario, $nome_usuario);
+$mail->setFrom($email_destinatario);
+$mail->addReplyTo($email);
+$mail->isHTML();
+$mail->Subject = 'Sistema de contato com o administrador';
 $mail->Body = $message;
-
-if ($mail->Send()):
-    echo 'Enviado com sucesso !';
-else:
-    echo 'Erro ao enviar Email:' . $mail->ErrorInfo;
-endif;
+if (!$mail->send()) {
+    header('Location: modal_erro.php');
+} else {
+    header('Location: modal_sucesso.php');
+}

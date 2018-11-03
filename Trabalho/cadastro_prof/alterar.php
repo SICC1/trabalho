@@ -1,8 +1,9 @@
 <?php
+
 ini_set('display_errors', true);
 
 $id = $_POST['id'];
-$id_usuario= $_POST['id_usuario'];
+$id_usuario = $_POST['id_usuario'];
 $password = $_POST['password'];
 $nome = $_POST['nome'];
 $sobrenome = $_POST['sobrenome'];
