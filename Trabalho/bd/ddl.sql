@@ -43,7 +43,22 @@ descricao varchar(300),
 data_inserida datetime
 );
 
-drop table comentario;
+create table solicitar_trabalho(
+id int primary key auto_increment,
+nome varchar(30),
+password varchar(100),
+sobrenome varchar(30),
+telefone int,
+celular int,
+email varchar(40),
+nome_trabalho varchar(40),
+tipo varchar(50),
+descricao varchar(1000),
+data_inserida datetime,
+atendido int
+);
+
+alter table solicitar_trabalho add atendido int;
 
 select now();
 SELECT DATE_FORMAT(now(), "%W %M %e %Y");
@@ -57,6 +72,7 @@ select * from usuario;
 select * from profissional;
 select * from trabalho;
 select * from comentario;
+select * from solicitar_trabalho;
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Excluir tabelas; --
@@ -64,6 +80,7 @@ drop table usuario;
 drop table profissional;
 drop table trabalho;
 drop table comentario;
+drop table solicitar_trabalho;
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Inserção da tabela --
@@ -97,4 +114,10 @@ select now();
 
 select current_time();
 
+select * from profissional where nome = 'maria1';
+
+select * from solicitar_trabalho where atendido != 1
+
 insert into profissional (nome, sobrenome, email, data_nasc, telefone, depto, id_usuario, celular, cargo, cpf, endereco, cep, sexo, profissao, dia_hora_cadastrado) values ('sdadas', 'dasda', 'asdas@dasd','2018-09-14',123,'sdad', 17, 231, 'asd', '231', 'asda', '312', 'Masculino', 'asdas', now());
+
+insert into solicitar_trabalho(nome, password, sobrenome, telefone, email, celular, descricao, nome_trabalho, tipo, data_inserida) values ('iago', 123, 'ramos', 4312, 'iago-ramos1000@hotmail.com', 1242, 'dcascasc', 'nome', 'qualquer', now());

@@ -1,8 +1,8 @@
 <?php
 include '../cabecalho.php';
-?>  
+?>
 <div class="col-md-8 container-fluid" id="div-cor2">
-    
+
     <form method="post" action="inserir.php">
         <div class="form-row">
             <div class="col-md-4 mb-3">
@@ -40,15 +40,15 @@ include '../cabecalho.php';
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>CPF</label>
-                <input type="cpf" name="cpf" class="form-control" placeholder="CPF" required>
+                <input type="number" name="cpf" class="form-control" placeholder="CPF" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>Telefone</label>
-                <input type="text" name="telefone" class="form-control" id="validationDefault04" placeholder="Telefone" required>
+                <input type="number" name="telefone" class="form-control" id="validationDefault04" placeholder="Telefone" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>Celular</label>
-                <input type="text" name="celular" class="form-control" placeholder="Celular" required>
+                <input type="number" name="celular" class="form-control" placeholder="Celular" required>
             </div>
         </div>
         <div class="form-row">
@@ -62,7 +62,7 @@ include '../cabecalho.php';
             </div>
             <div class="col-md-4 mb-3">
                 <label>CEP</label>
-                <input type="text" name="cep" class="form-control" placeholder="CEP" required>
+                <input type="number" name="cep" class="form-control" placeholder="CEP" required>
             </div>
         </div>
         <div class="form-row">
@@ -91,7 +91,7 @@ include '../cabecalho.php';
                 </label>
             </div>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Cadastrar-se</button>
-           
+
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">

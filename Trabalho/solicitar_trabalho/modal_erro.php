@@ -1,5 +1,6 @@
 <?php
 include_once './form_inserir.php';
+;
 ?>
 <html>
     <head>
@@ -13,7 +14,7 @@ include_once './form_inserir.php';
                         <h4 class="modal-title">Erro! :'(</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Um erro ocorreu ao fazer o cadastro, por favor entre em contato o suporte
+                        <p>Um erro ocorreu ao fazer a sua solicitação de trabalho, por favor entre em contato o suporte
                             ou aguarde o problema ser resolvido.</p>
                     </div>
                     <div class="modal-footer">

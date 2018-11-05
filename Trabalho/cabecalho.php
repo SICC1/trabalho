@@ -1,7 +1,7 @@
 <?php
+//error_reporting(0);
 include_once './bd/conectar.php';
 include_once 'config.php';
-//error_reporting(0);
 ?>
 <head>
     <meta lang="br">
@@ -23,7 +23,7 @@ include_once 'config.php';
         if (exibirUsername() == 'admin') {
             ?>
             <!--Navigation -->
-            <nav class = 'navbar navbar-expand-lg navbar-light bg-light static-top ' id="cor-menu">
+            <nav class = 'navbar navbar-expand-lg navbar-light bg-light static-top' id="cor-menu">
                 <div class = 'container'>
                     <a class = 'navbar-brand' href = '<?= $url ?>/index.php'><h3>SICC</h3></a>
                     <button class = 'navbar-toggler' type = 'button' data-toggle = 'collapse' data-target = '#navbarResponsive' aria-controls = 'navbarResponsive' aria-expanded = 'false' aria-label = 'Toggle navigation'>
@@ -36,20 +36,31 @@ include_once 'config.php';
                                     <span class = 'sr-only'>(current)</span>
                                 </a>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    O que fazemos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class='dropdown-item' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
+                                </div>
+                            </li>
                             <li class = 'nav-item'>
                                 <a class = 'nav-link' href = '<?= $url ?>/confirmar_cadastro/listar.php'>Profissionais</a>
                             </li>
                             <li class = 'nav-item'>
-                                <a class = 'nav-link' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
-                            </li>
-                            <li class = 'nav-item'>
-                                <a class = 'nav-link' href = '<?= $url ?>/divulgar_trabalho/listar.php'>Trabalhos divulgados</a>
-                            </li>
-                            <li class = 'nav-item'>
                                 <a class = 'nav-link' href = '<?= $url ?>/cadastro_prof/form_inserir.php'>Cadastro de Profissionais</a>
                             </li>
-                            <li class = 'nav-item'>
-                                <a class = 'nav-link' href = '<?= $url ?>/email/contato.php'>Contatos</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Contatos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="<?= $url ?>/email/contato.php">Contatos</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/cadastro_prof/form_inserir.php">Cadastre-se</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/form_inserir.php">Solicitação de Trabalhos</a>
+                                </div>
                             </li>
                             <li class = 'nav-item'>
                                 <a class = 'nav-link' href = '<?= $url ?>/usuario/logout.php'>Logout</a>
@@ -79,17 +90,28 @@ include_once 'config.php';
                                     <span class = 'sr-only'>(current)</span>
                                 </a>
                             </li>
-                            <li class = 'nav-item'>
-                                <a class = 'nav-link' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
-                            </li>
-                            <li class = 'nav-item'>
-                                <a class = 'nav-link' href = '<?= $url ?>/divulgar_trabalho/listar.php'>Trabalhos divulgados</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    O que fazemos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class='dropdown-item' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
+                                </div>
                             </li>
                             <li class = 'nav-item'>
                                 <a class = 'nav-link' href = '<?= $url ?>/profissional/perfilProfissional.php'>Perfil</a>
                             </li>
-                            <li class = 'nav-item'>
-                                <a class = 'nav-link' href = '<?= $url ?>/email/contato.php'>Contatos</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Contatos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="<?= $url ?>/email/contato.php">Contatos</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/cadastro_prof/form_inserir.php">Cadastre-se</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/form_inserir.php">Solicitação de Trabalhos</a>
+                                </div>
                             </li>
                             <li class = 'nav-item'>
                                 <a class = 'nav-link' href = '<?= $url ?>/usuario/logout.php'>Logout</a>
@@ -123,17 +145,27 @@ include_once 'config.php';
                                 <span class = 'sr-only'>(current)</span>
                             </a>
                         </li>
-                        <li class = 'nav-item'>
-                            <a class = 'nav-link' href = '<?= $url ?>/divulgar_trabalho/listar.php'>Trabalhos divulgados</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                O que fazemos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
+                            </div>
                         </li>
                         <li class = 'nav-item'>
                             <a class = 'nav-link' href = '<?= $url ?>/usuario/form_login.php'>Login</a>
                         </li>
-                        <li class = 'nav-item'>
-                            <a class = 'nav-link' href = '<?= $url ?>/cadastro_prof/form_inserir.php'>Cadastre-se</a>
-                        </li>
-                        <li class = 'nav-item'>
-                            <a class = 'nav-link' href = '<?= $url ?>/email/contato.php'>Contatos</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contatos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= $url ?>/email/contato.php">Contatos</a>
+                                <a class="dropdown-item" href="<?= $url ?>/cadastro_prof/form_inserir.php">Cadastre-se</a>
+                                <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/form_inserir.php">Solicitação de Trabalhos</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

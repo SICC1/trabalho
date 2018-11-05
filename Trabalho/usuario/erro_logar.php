@@ -1,5 +1,5 @@
 <?php
-include_once './form_inserir.php';
+include_once './form_login.php';
 ?>
 <html>
     <head>
@@ -17,7 +17,7 @@ include_once './form_inserir.php';
                             ou aguarde o problema ser resolvido.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="redirecionar()" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@ include_once './form_inserir.php';
                 $('#modal_erro').modal('show');
             });
             function redirecionar() {
-                window.location = "form_inserir.php";
+                window.location = "form_login.php";
             }
         </script>
     </body>

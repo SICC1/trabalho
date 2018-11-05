@@ -13,28 +13,9 @@ $resultado = mysqli_query($conexao, $sql);
 ?>
 <h1 align="center">Dados do seu perfil</h1>
 <div class="col-md-8 container-fluid" align="center">
-<!--    <table class="table-bordered table-hover" border="1">
-        <tr>
-            <td>Nome</td><td>Sobrenome</td><td>Data nasc.</td><td>Telefone</td><td>Depto</td><td>Excluir</td><td>Alterar</td>
-        </tr>
     <?php
     while ($linha = mysqli_fetch_array($resultado)) {
         ?>
-                        <tr>
-                        <input type="hidden" name="id" value="<?php $linha[id] ?>">
-                        <td><?= $linha['nome'] ?></td>
-                        <td><?= $linha['data_nasc'] ?></td>
-                        <td><?= $linha['telefone'] ?></td>
-                        <td><?= $linha['depto'] ?></td>
-
-                        <td><a href="excluir.php?id=<?= $linha['id'] ?>">
-                                <img src="../img/excluir.jpeg" class="img-thumbnail" width="50"/></a></td>
-                                <td><a href="form_alterar.php?id=<?= $linha['id_usuario'] ?>">
-                                <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
-                        </tr>
-
-
-                </table>-->
         <form method="post" action="alterar.php">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="id_usuario" value="<?= $linha['id_usuario'] ?>">
@@ -72,15 +53,24 @@ $resultado = mysqli_query($conexao, $sql);
                 </div>
                 <div class="col-md-4 mb-3">
                     <label>CPF</label>
-                    <input type="cpf" name="cpf" class="form-control" value="<?= $linha['cpf'] ?>" required>
+                    <input type="number" name="cpf" class="form-control" value="<?= $linha['cpf'] ?>" required>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="sexo">Sexo</label>
                     <br>
-                    <select id="sexo" name="sexo" class="form-control">
-                        <option  value="Masculino" >Masculino</option>
-                        <option value="Feminino">Femino</option>
-                    </select>
+                    <?php
+                    if ($linha['sexo'] == Masculino) {
+                        ?>
+                        <select id="sexo" name="sexo" class="form-control" >
+                            <option  value="Masculino" selected>Masculino</option>
+                            <option value="Feminino">Femino</option>
+                        </select>
+                    <?php } else { ?>
+                        <select id="sexo" name="sexo" class="form-control" >
+                            <option  value="Masculino" >Masculino</option>
+                            <option value="Feminino" selected>Femino</option>
+                        </select>
+                    <?php } ?>
                 </div>
             </div>
             <div class="form-row">
@@ -90,11 +80,11 @@ $resultado = mysqli_query($conexao, $sql);
                 </div>
                 <div class="col-md-4 mb-3">
                     <label>Telefone</label>
-                    <input type="text" name="telefone" class="form-control" id="validationDefault04" value="<?= $linha['telefone'] ?>" required>
+                    <input type="number" name="telefone" class="form-control" id="validationDefault04" value="<?= $linha['telefone'] ?>" required>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label>Celular</label>
-                    <input type="text" name="celular" class="form-control" value="<?= $linha['celular'] ?>" required>
+                    <input type="number" name="celular" class="form-control" value="<?= $linha['celular'] ?>" required>
                 </div>
             </div>
             <div class="form-row">
@@ -114,7 +104,7 @@ $resultado = mysqli_query($conexao, $sql);
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label>CEP</label>
-                    <input type="text" name="cep" class="form-control" value="<?= $linha['cep'] ?> " required>
+                    <input type="number" name="cep" class="form-control" value="<?= $linha['cep'] ?>" required>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label>Endereço</label>
