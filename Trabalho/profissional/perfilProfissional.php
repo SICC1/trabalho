@@ -1,6 +1,6 @@
 <?php
 //ini_set('display_errors', true);
-include '../bd/conectar.php';
+include '../conectar.php';
 include '../cabecalho.php';
 
 $sql = "select profissional.*, usuario.* from usuario join profissional on usuario.id = profissional.id_usuario "

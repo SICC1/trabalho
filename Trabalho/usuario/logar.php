@@ -8,7 +8,7 @@ $username = $_POST['username'];
 
 $password = $_POST['password'];
 
-include '../bd/conectar.php';
+include '../conectar.php';
 
 $sql = "select * from usuario where username = '$username' and password = '$password' and admin != 0";
 

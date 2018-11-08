@@ -19,7 +19,7 @@ $profissao = $_POST['profissao'];
 $cep = $_POST['cep'];
 $endereco = $_POST['endereco'];
 
-include '../bd/conectar.php';
+include '../conectar.php';
 
 $sql_profissional = "update profissional set nome='$nome', sobrenome='$sobrenome', email='$email', cpf='$cpf'"
         . ", sexo='$sexo', data_nasc='$data_nasc', telefone='$telefone', celular='$celular', depto='$depto' "

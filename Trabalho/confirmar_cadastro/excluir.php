@@ -2,7 +2,7 @@
 
 ini_set("display_errors", true);
 
-include_once '../bd/conectar.php';
+include_once '../conectar.php';
 
 $id = $_GET['id'];
 

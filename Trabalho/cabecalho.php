@@ -1,7 +1,10 @@
 <?php
-//error_reporting(0);
-include_once './bd/conectar.php';
-include_once 'config.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+//include_once '/home/vhosts/sicc-tubarao.freevar.com/conectar.php';
+include_once '/var/www/html/Trabalho/conectar.php';
 ?>
 <head>
     <meta lang="br">
@@ -43,6 +46,7 @@ include_once 'config.php';
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class='dropdown-item' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
                                     <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes.php">Trabalhos solicitados</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                                 </div>
                             </li>
@@ -97,6 +101,7 @@ include_once 'config.php';
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class='dropdown-item' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
                                     <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes.php">Trabalhos solicitados</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                                 </div>
                             </li>
@@ -151,6 +156,7 @@ include_once 'config.php';
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes.php">Trabalhos solicitados</a>
                                 <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                             </div>
                         </li>

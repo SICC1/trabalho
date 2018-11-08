@@ -1,6 +1,6 @@
 <?php
 
-include '../bd/conectar.php';
+include '../conectar.php';
 $id = $_POST['id'];
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];

@@ -2,7 +2,7 @@
 
 ini_set("display_errors", true);
 
-include '../bd/conectar.php';
+include '../conectar.php';
 
 $id = $_POST['id'];
 

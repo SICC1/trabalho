@@ -1,7 +1,5 @@
 <?php
 include_once '../cabecalho.php';
-include_once '../bd/conectar.php';
-
 if (estaLogado() == TRUE) {
 
 } else {
@@ -99,7 +97,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="col-12" name="naame<?= $linha['id_trabalho'] ?>">
+                                    <div class="col-12" name="name<?= $linha['id_trabalho'] ?>">
                                         <h3>Comentários</h3>
                                         <div class="row">
                                             <?php
@@ -123,7 +121,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                                             <?php
                                                         }
                                                         ?>
-
                                                     </div>
                                                     <div class="col-12">
                                                         <a><?= $linha_comentario['descricao'] ?></a>
@@ -159,7 +156,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
 
                     <?php
                 }
-                if ($linha['id_usuario'] == $_SESSION[id] && $linha_admin['admin'] != 2) {
+                if ($linha['id_usuario'] == $_SESSION['id'] && $linha_admin['admin'] != 2) {
                     ?>
                     <div class="col-1">
                         <p>

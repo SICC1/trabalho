@@ -1,5 +1,6 @@
 <?php
-include_once '../bd/conectar.php';
+
+include_once '../conectar.php';
 session_start();
 
 ini_set("display_errors", true);

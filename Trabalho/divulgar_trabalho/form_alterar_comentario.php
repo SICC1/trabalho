@@ -1,6 +1,6 @@
 <?php
 include_once '../cabecalho.php';
-include_once '../bd/conectar.php';
+include_once '../conectar.php';
 
 $id = $_GET['id'];
 $sql_comentario = "select * from comentario where id = $id";

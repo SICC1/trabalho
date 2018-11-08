@@ -1,10 +1,10 @@
 <?php
 include '../cabecalho.php';
-?>  
+?>
 <?php
 $id = $_GET['id'];
-include '../bd/conectar.php';
-$sql_pessoa = "select profissional.*, usuario.* from usuario 
+include '../conectar.php';
+$sql_pessoa = "select profissional.*, usuario.* from usuario
 join profissional on usuario.id = profissional.id_usuario where usuario.id = $id";
 
 $resultado = mysqli_query($conexao, $sql_pessoa);
@@ -47,10 +47,10 @@ $linha = mysqli_fetch_array($resultado);
                     <input type="email" name="email" class="form-control" value="<?= $linha['email'] ?>"   aria-describedby="inputGroupPrepend2" required>
                 </div>
             </div>
-                <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3">
                 <label>CPF</label>
-                <input type="cpf" name="cpf" class="form-control" value="<?=$linha['cpf']?>" required>
-            </div>  
+                <input type="cpf" name="cpf" class="form-control" value="<?= $linha['cpf'] ?>" required>
+            </div>
             <div class="col-md-4 mb-3">
                 <label for="sexo">Sexo</label>
                 <br>
@@ -99,12 +99,6 @@ $linha = mysqli_fetch_array($resultado);
             </div>
         </div>
         <div align="center" class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                <label class="form-check-label" for="invalidCheck2">
-                    Aceitar os Termos e as Condições
-                </label>
-            </div>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Alterar Dados</button>
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-sm">

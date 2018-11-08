@@ -1,6 +1,6 @@
 <?php
 include '../cabecalho.php';
-include '../bd/conectar.php';
+include '../conectar.php';
 
 //$sql = "SELECT DATE_FORMAT(now(), '%m %d %Y') as data"; modo para visualizar a data no formato do brasil
 
@@ -9,7 +9,6 @@ $sql = "SELECT now() as data";
 $resultado = mysqli_query($conexao, $sql);
 
 $linha = mysqli_fetch_array($resultado);
-
 ?>
 <div class="col-md-8 container-fluid" id="div-cor2">
     <form method="post" action="inserir.php">
@@ -21,12 +20,12 @@ $linha = mysqli_fetch_array($resultado);
             </div>
             <div class="col-md-4 mb-3">
                 <input type="hidden" name="data" placeholder="<?= $linha['data'] ?>" value="<?= $linha['data'] ?>" class="form-control" required>
-            </div>    
+            </div>
         </div>
         <div class="row">
             <div class="col-md-11">
                 <label>Descrição:</label>
-             
+
             </div>
             <div class="col-md-1">
                 <a href="">Anexo</a>

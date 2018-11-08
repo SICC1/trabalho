@@ -43,8 +43,11 @@ descricao varchar(300),
 data_inserida datetime
 );
 
+select * from comentario;
+
 create table solicitar_trabalho(
 id int primary key auto_increment,
+id_profissional int,
 nome varchar(30),
 password varchar(100),
 sobrenome varchar(30),
@@ -58,7 +61,10 @@ data_inserida datetime,
 atendido int
 );
 
+insert into usuario values (default ,'admin', '123', 2);
+
 alter table solicitar_trabalho add atendido int;
+alter table solicitar_trabalho add id_profissional int;
 
 select now();
 SELECT DATE_FORMAT(now(), "%W %M %e %Y");
@@ -84,7 +90,7 @@ drop table solicitar_trabalho;
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Inserção da tabela --
-insert into usuario values (default ,'admin', '123', 2);
+
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 --select * from usuario where username = 'admin' and password = 123 and admin != 0;

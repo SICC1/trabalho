@@ -10,7 +10,7 @@ if (estaLogado() == TRUE) {
 
 //$sql = "select curso.id, curso.nome from curso join usuario on usuario.id = curso.usuario_id where usuario.username = '$_SESSION[username]'";
 
-$sql = "select * from solicitar_trabalho where atendido = 1";
+$sql = "select * from solicitar_trabalho where atendido != 1";
 $resultado = mysqli_query($conexao, $sql);
 //pegando o admin para fazer a comparação se ele é ou não usuario
 $retorno_admin = "select admin from usuario where id = $_SESSION[id]";
@@ -36,11 +36,13 @@ while ($linha = mysqli_fetch_array($resultado)) {
                             <div class="row">
                                 <div class="col-9"><h1><?= $linha['nome'] ?></h1></div>
                                 <div class="col-3"><label>Data: </label><?= " " . $linha['data_inserida'] ?></div>
-                                <div class="col-12">
-                                    <a><?= $linha['descricao'] ?> </a>
-                                </div>
                             </div>
                             <hr>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a><?= $linha['descricao'] ?></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,7 +54,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
                     ?>
                     <div class="col-1">
                         <p>
-                            <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
+                            <a href="form_visualizar.php?id=<?= $linha['id']; ?>"><img height="15" lang="15" src="../img/mais_info.png"></a>
                         </p>
                     </div>
                     <div class="well">

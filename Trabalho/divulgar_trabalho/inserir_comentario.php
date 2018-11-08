@@ -1,7 +1,7 @@
 <?php
 
 //session_start();
-include '../bd/conectar.php';
+include '../conectar.php';
 
 ini_set("display_errors", true);
 $id_trabalho = $_POST['id_trabalho'];

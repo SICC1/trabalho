@@ -1,5 +1,5 @@
 <?php
-include '../bd/conectar.php';
+include '../conectar.php';
 
 //ini_set("display_errors", true);
 //$sql = "select curso.id, curso.nome from curso join usuario on usuario.id = curso.usuario_id where usuario.username = '$_SESSION[username]'";

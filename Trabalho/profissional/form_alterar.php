@@ -1,15 +1,14 @@
 <?php
 include '../cabecalho.php';
-?>  
+?>
 <?php
 $id = $_GET['id'];
-include '../bd/conectar.php';
-$sql_pessoa = "select profissional.*, usuario.* from usuario 
+include '../conectar.php';
+$sql_pessoa = "select profissional.*, usuario.* from usuario
 join profissional on usuario.id = profissional.id_usuario where usuario.id = $id";
 
 $resultado = mysqli_query($conexao, $sql_pessoa);
 $linha = mysqli_fetch_array($resultado);
-
 ?>
 <div class="col-md-8 container-fluid" id="div-cor1">
     <form method="post" action="alterar.php">
@@ -32,7 +31,7 @@ $linha = mysqli_fetch_array($resultado);
             <div class="col-md-4 mb-3">
                 <label>Password</label>
                 <input type="text" name="password" class="form-control" value="<?= $linha['password'] ?>" required>
-            </div>    
+            </div>
         </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">

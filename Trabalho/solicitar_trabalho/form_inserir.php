@@ -1,6 +1,5 @@
 <?php
 include '../cabecalho.php';
-include '../bd/conectar.php';
 
 //$sql = "SELECT DATE_FORMAT(now(), '%m %d %Y') as data"; modo para visualizar a data no formato do brasil
 ?>

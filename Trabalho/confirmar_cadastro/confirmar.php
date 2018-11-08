@@ -2,7 +2,7 @@
 
 $id = $_GET['id'];
 
-include '../bd/conectar.php';
+include '../conectar.php';
 
 $sql_pessoa = "update usuario set admin=1 where id=$id";
 echo $sql_pessoa;
