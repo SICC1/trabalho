@@ -61,6 +61,9 @@ data_inserida datetime,
 atendido int
 );
 
+select * from solicitar_trabalho;
+
+update solicitar_trabalho set atendido= 0 where id =1;
 insert into usuario values (default ,'admin', '123', 2);
 
 alter table solicitar_trabalho add atendido int;

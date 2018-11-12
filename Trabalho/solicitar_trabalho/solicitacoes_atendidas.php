@@ -52,19 +52,17 @@ while ($linha = mysqli_fetch_array($resultado)) {
                     ?>
                     <div class="col-1">
                         <p>
-                            <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
+                            <a href="form_alterar_solicitacao_atendida.php?id=<?= $linha['id']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
                         </p>
                     </div>
                     <div class="well">
                     </div>
-
                     <?php
                 }
                 ?>
             </div>
         </div>
     </div>
-
     <?php
 }
 ?>

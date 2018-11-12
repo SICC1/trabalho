@@ -1,6 +1,5 @@
 <?php
-include_once './form_inserir.php';
-;
+include_once './solicitacoes.php';
 ?>
 <html>
     <head>
@@ -10,14 +9,10 @@ include_once './form_inserir.php';
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Parbéns, pedido enviado com sucesso.</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Seu pedido de cadastro foi enviado com sucesso.
-                            Aguarde ele ser aprovado para poder entrar em sua conta.</p>
+                        <h4 class="modal-title">Solicitação de trabalho excluída com sucesso!</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" onclick="redirecionar()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="redirecionar()" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -28,10 +23,8 @@ include_once './form_inserir.php';
             });
 
             function redirecionar() {
-                window.location = "form_inserir.php";
+                window.location = "solicitacoes.php";
             }
-
         </script>
-
     </body>
 </html>
