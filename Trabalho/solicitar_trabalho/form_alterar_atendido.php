@@ -2,7 +2,8 @@
 include '../cabecalho.php';
 
 $id = $_GET['id'];
-
+$id_prof = $_GET['id_profissional'];
+$mostrar = $_GET['mostrar'];
 
 $sql_solicitacao = "select * from solicitar_trabalho where id = $id";
 
@@ -11,7 +12,7 @@ $retorno = mysqli_query($conexao, $sql_solicitacao);
 $linha = mysqli_fetch_array($retorno);
 ?>
 <div class="col-md-8 container-fluid" id="div-cor2">
-    <form method="post" action="alterar.php">
+    <form method="post" action="alterar_atendido.php">
         <input type="hidden" name="id" value="<?= $linha['id'] ?>">
         <div class="form-row">
             <div class="col-md-6 mb-3">
@@ -59,6 +60,34 @@ $linha = mysqli_fetch_array($retorno);
             <textarea name="descricao" class="form-control" required><?= $linha['descricao'] ?></textarea>
         </div>
         <div align="center" class="form-group">
+            <?php
+            if ($_SESSION['id'] == $id_prof && $mostrar == 10) {
+                ?>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#concluir">Concluir trabalho</button>
+                <div class="modal fade" id="concluir" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirmar a conclusão do trabalho</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Deseja passar o estado desse trabalho como concluído?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="concluir()">Confirmar</button>
+                                <script>
+                                    function concluir() {
+                                        window.location = "concluir_solicitacao.php?id=<?= $id ?>&id_profissional=<?= $_SESSION['id'] ?>";
+                                    }
+                                </script>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Alterar</button>
             <button type="reset" class="btn btn-default" value="Limpar campos">Limpar Modificações</button>
             <div class="modal fade" id="myModal" role="dialog">
@@ -80,6 +109,7 @@ $linha = mysqli_fetch_array($retorno);
         </div>
     </form>
 </div>
+
 <?php
 //include 'listar.php';
 include '../rodape.php';

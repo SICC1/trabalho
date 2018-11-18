@@ -12,7 +12,7 @@ include '../cabecalho.php';
 <div class="col-md-8 container-fluid" align="center">
     <table class="table-bordered table-active table-hover" border="1">
         <tr>
-            <td>Nome</td><td>Data nasc.</td><td>Telefone</td><td>profissão</td><td>Depto</td><td>Excluir</td><td>Confirmar</td><td>Alterar</td>
+            <td>Nome</td><td>Data nasc.</td><td>Celular</td><td>profissão</td><td>Depto</td><td>Excluir</td><td>Confirmar</td><td>Alterar</td>
         </tr>
         <?php
         while ($linha = mysqli_fetch_array($resultado)) {
@@ -21,10 +21,9 @@ include '../cabecalho.php';
             <input type="hidden" name="id" value="<?php $linha[id] ?>">
             <td><?= $linha['nome'] ?></td>
             <td><?= $linha['data_nasc'] ?></td>
-            <td><?= $linha['telefone'] ?></td>
+            <td><?= $linha['celular'] ?></td>
             <td><?= $linha['profissao'] ?></td>
             <td><?= $linha['depto'] ?></td>
-
 
             <div class='modal fade' id='modal_excluir' role="dialog">
                 <div class="modal-dialog modal-sm">

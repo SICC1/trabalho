@@ -4,7 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //include_once '/home/vhosts/sicc-tubarao.freevar.com/conectar.php';
-include_once '/var/www/html/Trabalho/conectar.php';
+//include_once '/var/www/html/Trabalho/conectar.php';
+include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
 ?>
 <head>
     <meta lang="br">
@@ -73,6 +74,7 @@ include_once '/var/www/html/Trabalho/conectar.php';
                                 <img class="img-thumbnail" src="<?= $url ?>/img/configurar.png" width="30" height="30"> <?= exibirUsername(); ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_andamentos.php">Meus trabalhos</a>
                                 <a class="dropdown-item" href="<?= $url ?>/usuario/logout.php">Logout</a>
                             </div>
                         </ul>
@@ -125,6 +127,7 @@ include_once '/var/www/html/Trabalho/conectar.php';
                                 <img class="img-thumbnail" src="<?= $url ?>/img/configurar.png" width="30" height="30"> <?= exibirUsername(); ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_andamentos.php">Meus trabalhos</a>
                                 <a class="dropdown-item" href="<?= $url ?>/usuario/logout.php">Logout</a>
                             </div>
                         </ul>

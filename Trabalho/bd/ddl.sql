@@ -11,16 +11,15 @@ id int primary key auto_increment,
 id_usuario int references usuario(id),
 profissao varchar(100),
 nome varchar(100),
-sobrenome varchar(100),
+sobrenome varchar(100) null,
 cpf varchar(100),
-celular int,
-telefone int,
-depto varchar(100),
-data_nasc varchar(100),
+celular int null,
+depto varchar(100) null,
+data_nasc varchar(100) null,
 email varchar(100) unique,
-cargo varchar(100),
+cargo varchar(100) null,
 cep varchar(20),
-endereco varchar(100),
+endereco varchar(100) null,
 sexo varchar(20),
 dia_hora_cadastrado datetime
 );
@@ -43,7 +42,6 @@ descricao varchar(300),
 data_inserida datetime
 );
 
-select * from comentario;
 
 create table solicitar_trabalho(
 id int primary key auto_increment,
@@ -51,7 +49,6 @@ id_profissional int,
 nome varchar(30),
 password varchar(100),
 sobrenome varchar(30),
-telefone int,
 celular int,
 email varchar(40),
 nome_trabalho varchar(40),
@@ -102,6 +99,7 @@ select * from profissional;
 select * from usuario, profissional where usuario.id = profissional.id_usuario;
 
 
+
 DELETE FROM usuario, profissional USING usuario, profissional
 WHERE usuario.id = 2 AND profissional.id_usuario = 2
 
@@ -121,6 +119,9 @@ DELETE FROM usuario, profissional USING usuario, profissional WHERE usuario.id =
 
 select now();
 
+
+SELECT * FROM solicitar_trabalho WHERE solicitar_trabalho.atendido IS NULL;
+
 select current_time();
 
 select * from profissional where nome = 'maria1';
@@ -129,4 +130,14 @@ select * from solicitar_trabalho where atendido != 1
 
 insert into profissional (nome, sobrenome, email, data_nasc, telefone, depto, id_usuario, celular, cargo, cpf, endereco, cep, sexo, profissao, dia_hora_cadastrado) values ('sdadas', 'dasda', 'asdas@dasd','2018-09-14',123,'sdad', 17, 231, 'asd', '231', 'asda', '312', 'Masculino', 'asdas', now());
 
-insert into solicitar_trabalho(nome, password, sobrenome, telefone, email, celular, descricao, nome_trabalho, tipo, data_inserida) values ('iago', 123, 'ramos', 4312, 'iago-ramos1000@hotmail.com', 1242, 'dcascasc', 'nome', 'qualquer', now());
+select * from profissional;
+insert into solicitar_trabalho(nome, password, sobrenome, email, celular,
+         descricao, nome_trabalho, tipo, data_inserida) values ('iago', '123', 'dasdas',
+'sadas', 122, '$descricao', '$nome_trabalho', 'dsadas', now());
+
+
+select * from solicitar_trabalho;
+update solicitar_trabalho set nome='IagoRa', sobrenome='Ramos dos Santos', celular=996929590, email='siccsistema@gmail.com', password='sicc12345', 
+nome_trabalho='Não sei trocar a tomada da cozinha', tipo='Elétrico', 
+descricao='Não estou conseguindo trocar a tomada da cozinha, não sei se é para usar
+ chave de fenda ou philips.' where id = 1;

@@ -17,10 +17,6 @@ include '../cabecalho.php';
         </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">
-                <label>Telefone</label>
-                <input type="number" name="telefone" class="form-control" placeholder="Telefone" required>
-            </div>
-            <div class="col-md-6 mb-3">
                 <label>Celular</label>
                 <input type="number" name="celular" class="form-control" placeholder="Celular" required>
             </div>

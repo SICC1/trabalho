@@ -3,19 +3,15 @@ include_once '../cabecalho.php';
 include_once '../conectar.php';
 
 $id = $_GET['id'];
-$sql_comentario = "select * from comentario where id = $id";
 
+$sql_comentario = "select * from comentario where id = $id";
 $retorno_comentario = mysqli_query($conexao, $sql_comentario);
 $linha_comentario = mysqli_fetch_array($retorno_comentario);
 
 $sql_data = "select now() as data_trab";
-
 $resultado_data = mysqli_query($conexao, $sql_data);
 $linha_data = mysqli_fetch_array($resultado_data);
 
-$resultado = mysqli_query($conexao, $sql_pessoa);
-
-$linha = mysqli_fetch_array($resultado);
 ?>
 <div class="col-md-8 container-fluid" id="div-cor2">
     <form method="post" action="alterar_comentario.php">
@@ -32,7 +28,6 @@ $linha = mysqli_fetch_array($resultado);
             <div class="col-md-4 mb-3">
                 <label>E-Mail</label>
                 <input type="text" name="email" class="form-control" placeholder="E-Mail" value="<?= $linha_comentario['email'] ?>" required>
-
             </div>
         </div>
         <div class="row">
@@ -45,7 +40,6 @@ $linha = mysqli_fetch_array($resultado);
             </div>
 
             <textarea name="descricao" class="form-control" required><?= $linha_comentario['descricao'] ?></textarea>
-<!--<input type="text" name="descricao" class="form-control" placeholder="Descrição" required>-->
         </div>
         <div align="center" class="form-group">
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Alterar</button>
@@ -92,9 +86,7 @@ $linha = mysqli_fetch_array($resultado);
             </script>
         </div>
     </form>
-
 </div>
-
 <?php
 //include 'listar.php';
 include '../rodape.php';

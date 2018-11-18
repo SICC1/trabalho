@@ -2,17 +2,15 @@
 include_once '../cabecalho.php';
 
 if (estaLogado() == TRUE) {
-    
+
 } else {
     error_reporting(0);
     ini_set("display_errors", 0);
 }
-
-//$sql = "select curso.id, curso.nome from curso join usuario on usuario.id = curso.usuario_id where usuario.username = '$_SESSION[username]'";
-
-$sql = "select * from solicitar_trabalho where atendido = 2";
+$sql = "select * from solicitar_trabalho where atendido = 1 and id_profissional = $_SESSION[id] order by data_inserida desc";
 $resultado = mysqli_query($conexao, $sql);
 //pegando o admin para fazer a comparação se ele é ou não usuario
+
 $retorno_admin = "select admin from usuario where id = $_SESSION[id]";
 $sql_retorno_admin = mysqli_query($conexao, $retorno_admin);
 $linha_admin = mysqli_fetch_array($sql_retorno_admin);
@@ -23,9 +21,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-        <!--      <p><a href="#">Link</a></p>
-              <p><a href="#">Link</a></p>
-              <p><a href="#">Link</a></p>-->
             </div>
             <div class="col-sm-8 text-left">
                 <div class="container">
@@ -46,35 +41,13 @@ while ($linha = mysqli_fetch_array($resultado)) {
                 </div>
             </div>
             <div class="col-sm-2 sidenav">
-                <!--nao terminado-->
                 <?php
                 if (estaLogado()) {
                     ?>
                     <div class="col-1">
                         <p>
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?= $linha['id'] ?>"><img height="15" lang="15" src="../img/excluir.jpeg"></button>
+                            <a href="form_alterar_atendido.php?id=<?= $linha['id'] ?>&id_profissional=<?= $_SESSION['id'] ?>&mostrar=10"><img height="15" lang="15" src="../img/configurar.png"></a>
                         </p>
-                    </div>
-                    <div class="modal fade" id="myModal<?= $linha['id'] ?>" role="dialog">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Confirmar exclusão</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Deseja realmente excluir a solicitação?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" onclick="redicecionar()">Confirmar</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                </div>
-                                <script>
-                                    function redicecionar() {
-                                        window.location = "excluir_solicitacao_atendidas.php?id=<?= $linha['id'] ?>";
-                                    }
-                                </script>
-                            </div>
-                        </div>
                     </div>
                     <div class="well">
                     </div>
@@ -95,8 +68,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
         else
             document.getElementById(di).style.display = 'none';
     }
-
-
 </script>
 <?php
 include_once '../rodape.php';

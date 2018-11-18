@@ -6,19 +6,19 @@ include '../cabecalho.php';
     <form method="post" action="inserir.php">
         <div class="form-row">
             <div class="col-md-4 mb-3">
-                <label>Nome</label>
+                <label>Nome<a style="color: red">*</a></label>
                 <input type="text" name="nome" class="form-control" placeholder="Primeiro Nome" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>Sobrenome</label>
-                <input type="text" name="sobrenome" class="form-control" placeholder="Sobrenome" required>
+                <input type="text" name="sobrenome" class="form-control" placeholder="Sobrenome">
             </div>
             <div class="col-md-4 mb-3">
-                <label>Profissão</label>
+                <label>Profissão<a style="color: red">*</a></label>
                 <input type="text" name="profissao" class="form-control" placeholder="Profissão" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label>Username</label>
+                <label>Username<a style="color: red">*</a></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
@@ -27,11 +27,11 @@ include '../cabecalho.php';
                 </div>
             </div>
             <div class="col-md-4 mb-3">
-                <label>Password</label>
+                <label>Password<a style="color: red">*</a></label>
                 <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label>E-mail</label>
+                <label>E-mail<a style="color: red">*</a></label>
                 <div class="input-group">
                     <input type="email" name="email" class="form-control" placeholder="E-mail" aria-describedby="inputGroupPrepend2" required>
                 </div>
@@ -39,39 +39,35 @@ include '../cabecalho.php';
         </div>
         <div class="form-row">
             <div class="col-md-4 mb-3">
-                <label>CPF</label>
+                <label>CPF<a style="color: red">*</a></label>
                 <input type="number" name="cpf" class="form-control" placeholder="CPF" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label>Telefone</label>
-                <input type="number" name="telefone" class="form-control" id="validationDefault04" placeholder="Telefone" required>
-            </div>
-            <div class="col-md-4 mb-3">
                 <label>Celular</label>
-                <input type="number" name="celular" class="form-control" placeholder="Celular" required>
+                <input type="number" name="celular" class="form-control" placeholder="Celular" >
             </div>
-        </div>
-        <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Depto</label>
-                <input type="text" name="depto" class="form-control" placeholder="Depto" required>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label>Cargo</label>
-                <input type="text" name="cargo" class="form-control" id="validationDefault04" placeholder="Cargo" required>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label>CEP</label>
-                <input type="number" name="cep" class="form-control" placeholder="CEP" required>
+                <input type="text" name="depto" class="form-control" placeholder="Depto">
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-4 mb-3">
-                <label>Endereço</label>
-                <input type="text" name="endereco" class="form-control" id="validationDefault04" placeholder="Endereço" required>
+                <label>Cargo</label>
+                <input type="text" name="cargo" class="form-control" id="validationDefault04" placeholder="Cargo">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="sexo">Sexo</label>
+                <label>CEP<a style="color: red">*</a></label>
+                <input type="number" name="cep" class="form-control" placeholder="CEP" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Endereço</label>
+                <input type="text" name="endereco" class="form-control" id="validationDefault04" placeholder="Endereço" >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="sexo">Sexo<a style="color: red">*</a></label>
                 <br>
                 <select id="sexo" name="sexo" class="form-control">
                     <option  value="Masculino" >Masculino</option>
@@ -80,7 +76,7 @@ include '../cabecalho.php';
             </div>
             <div class="col-md-4 mb-3">
                 <label>Data de Nasc.</label>
-                <input type="date" name="data_nasc" class="form-control" placeholder="Data de nascimento" required>
+                <input type="date" name="data_nasc" class="form-control" placeholder="Data de nascimento" >
             </div>
         </div>
         <div align="center" class="form-group">

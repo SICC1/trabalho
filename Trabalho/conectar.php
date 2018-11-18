@@ -3,7 +3,7 @@
 //Desenvolvimento
 $localhost = "localhost";
 $username1 = "root";
-$password1 = "ikimimaro100";
+$password1 = "";
 $dbname = "trabalho";
 $url = "http://localhost/Trabalho";
 

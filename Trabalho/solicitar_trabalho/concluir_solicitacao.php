@@ -11,12 +11,11 @@ require_once '../PHPMailer-6.0.5/src/PHPMailerAutoload.php';
 include_once '../conectar.php';
 
 $id = $_GET['id'];
-$id_usuario = $_GET['id_usuario'];
-$sql = "update solicitar_trabalho set id_profissional = $id_usuario, atendido = 1 where id = $id";
+$id_profissional = $_GET['id_profissional'];
+$sql = "update solicitar_trabalho set id_profissional = $id_profissional, atendido = 2 where id = $id";
 mysqli_query($conexao, $sql);
 
 if (mysqli_affected_rows($conexao) > 0) {
-
     $info_solicitacao = "select * from solicitar_trabalho where id = $id";
     $retorno_informacao = mysqli_query($conexao, $info_solicitacao);
     $resultado_informacao = mysqli_fetch_array($retorno_informacao);
@@ -30,7 +29,7 @@ if (mysqli_affected_rows($conexao) > 0) {
     $nome_profissional = $resultado_voltar_nome['username'];
 
     $message = "
-    <p>Olá $nome_usuario, seu pedido de trabalho foi aceito por $nome_profissional.</p>";
+    <p>Olá $nome_usuario, seu pedido de trabalho foi passado para concluído por $nome_profissional.</p>";
 
     $mail = new PHPMailer();
     $mail->isSMTP();
@@ -49,14 +48,14 @@ if (mysqli_affected_rows($conexao) > 0) {
     $mail->Subject = 'Não responda a esse e-mail';
     $mail->Body = $message;
     if (!$mail->send()) {
-        $sql = "update solicitar_trabalho set id_profissional = null, atendido = null where id = $id";
+        $sql = "update solicitar_trabalho set id_profissional = $id_profissional, atendido = 1 where id = $id";
         mysqli_query($conexao, $sql);
         header("Location: ./modal_erro_atender.php?id=$id");
     } else {
-        header("Location: ./modal_sucesso_atender.php");
+        header("Location: ./modal_sucesso_concluir.php");
     }
 } else {
-    $sql = "update solicitar_trabalho set id_profissional = null, atendido = null where id = $id";
+    $sql = "update solicitar_trabalho set id_profissional = $id_profissional, atendido = 1 where id = $id";
     mysqli_query($conexao, $sql);
-    header("Location: ./modal_erro_atender.php?id=$id");
+    header("Location: ./modal_erro_concluir.php?id=$id");
 }

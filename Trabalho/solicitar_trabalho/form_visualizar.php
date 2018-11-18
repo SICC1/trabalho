@@ -31,10 +31,6 @@ $linha = mysqli_fetch_array($resultado);
         </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">
-                <label>Telefone</label>
-                <input type="number" name="telefone" class="form-control" placeholder="Telefone" value="<?= $linha['telefone'] ?>" disabled>
-            </div>
-            <div class="col-md-6 mb-3">
                 <label>Celular</label>
                 <input type="number" name="celular" class="form-control" placeholder="Celular" value="<?= $linha['celular'] ?>" disabled>
             </div>
@@ -113,7 +109,7 @@ $linha = mysqli_fetch_array($resultado);
 </div>
 <script>
     function alterar() {
-        window.location = "alterar.php?id=<?= $linha['id'] ?>";
+        window.location = "form_alterar.php?id=<?= $linha['id'] ?>";
     }
     function excluir() {
         window.location = "excluir_solicitacao.php?id=<?= $linha['id'] ?>";

@@ -10,7 +10,7 @@ if (estaLogado() == TRUE) {
     ini_set("display_errors", 0);
 }
 //$sql = "select curso.id, curso.nome from curso join usuario on usuario.id = curso.usuario_id where usuario.username = '$_SESSION[username]'";
-$sql = "select * from solicitar_trabalho where atendido != 1";
+$sql = "select * from solicitar_trabalho where atendido is null order by data_inserida desc";
 $resultado = mysqli_query($conexao, $sql);
 while ($linha = mysqli_fetch_array($resultado)) {
     ?>
@@ -28,7 +28,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                 <div class="col-9"><h1><?= $linha['nome'] ?></h1></div>
                                 <div class="col-3"><label>Data: </label><?= " " . $linha['data_inserida'] ?></div>
                             </div>
-
                             <div class="row">
                                 <div class="col-12">
                                     <a><?= $linha['descricao'] ?></a>
