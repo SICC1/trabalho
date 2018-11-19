@@ -58,7 +58,16 @@ data_inserida datetime,
 atendido int
 );
 
+create table parcerias(
+id int primary key auto_increment,
+nome varchar(100),
+imagem varchar(100),
+descricao varchar(300)
+);
+
 select * from solicitar_trabalho;
+
+alter table parcerias add nome varchar(100);
 
 update solicitar_trabalho set atendido= 0 where id =1;
 insert into usuario values (default ,'admin', '123', 2);
@@ -66,19 +75,13 @@ insert into usuario values (default ,'admin', '123', 2);
 alter table solicitar_trabalho add atendido int;
 alter table solicitar_trabalho add id_profissional int;
 
-select now();
-SELECT DATE_FORMAT(now(), "%W %M %e %Y");
-
-select * from usuario where admin = 2
-SELECT DATE_FORMAT("2017-06-15", "%m %d %Y");
-
-
 -- selecionar a tabela --
 select * from usuario;
 select * from profissional;
 select * from trabalho;
 select * from comentario;
 select * from solicitar_trabalho;
+select * from parcerias;
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Excluir tabelas; --

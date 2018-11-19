@@ -74,6 +74,7 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                 <img class="img-thumbnail" src="<?= $url ?>/img/configurar.png" width="30" height="30"> <?= exibirUsername(); ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= $url ?>/patrocinadores/form_inserir.php">Cadastrar parceiros</a>
                                 <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_andamentos.php">Meus trabalhos</a>
                                 <a class="dropdown-item" href="<?= $url ?>/usuario/logout.php">Logout</a>
                             </div>

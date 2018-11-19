@@ -1,50 +1,51 @@
-
 <?php
 include_once './cabecalho.php';
+
+if (estaLogado()) {
+    $id = $_SESSION['id'];
+    $sql = "select * from usuario where id = $id";
+    $sql_linha = mysqli_query($conexao, $sql);
+    $linha_admin = mysqli_fetch_array($sql_linha);
+}
 ?>
 
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-    <!--      <p><a href="#">Link</a></p>
-          <p><a href="#">Link</a></p>
-          <p><a href="#">Link</a></p>-->
         </div>
         <div class="col-sm-8 text-left">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1>Welcome</h1>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                            sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                            consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore
-                            magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-                            corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel
-                            eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-                            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-                        <hr>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/ativar.png" width="300" height="400" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/alterar.png" width="300" height="400" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/alterar.png" width="300" height="400" alt="Third slide">
                     </div>
                 </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-
         </div>
         <div class="col-sm-2 sidenav">
-            <!--      <div class="well">
-                    <p>ADS</p>
-                  </div>
-                  <div class="well">
-                    <p>ADS</p>
-                  </div>-->
         </div>
     </div>
     <div class="row content">
         <div class="col-sm-2 sidenav">
-    <!--      <p><a href="#">Link</a></p>
-          <p><a href="#">Link</a></p>
-          <p><a href="#">Link</a></p>-->
         </div>
         <div class="col-sm-8 text-left">
             <div class="container">
@@ -62,15 +63,66 @@ include_once './cabecalho.php';
                     </div>
                 </div>
             </div>
+            <div class="col-12">
+                <?php
+                include_once './conectar.php';
+                $procura = "select * from parcerias";
+                $array = mysqli_query($conexao, $procura);
+                ?>
+                <div class="col-sm-12">
+                    <div class="form-row">
+                        <h1>Parceiros</h1>
+                    </div>
+                    <div class="form-row">
+                        <?php
+                        while ($linha = mysqli_fetch_array($array)) {
+                            ?>
+                            <div class="col-md-5 mb-3">
+                                Nome da empresa: <?= $linha['nome'] ?>
+                                    <br>
+                                Descrição:
+                                <?= $linha['descricao'] ?>
+                            </div>
+                        <?php
+                                    if ($linha_admin['admin'] == 2) {
+                                        ?>
+                                <div class="col-md-1 mb-3">
+                                        <p>
+                                            <a href="./patrocinadores/form_alterar.php?id=<?= $linha['id']; ?>"><img height="15" lang="15" src="img/configurar.png"></a>
+                                        </p>
+                                    </div>
+                                <?php }
+                                ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav">
+        </div>
+    </div>
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+        </div>
+        <div class="col-sm-8 text-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+
+                <div class="col-sm-12">
+                    <div class="form-row">
+
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="col-sm-2 sidenav">
-            <!--      <div class="well">
-                    <p>ADS</p>
-                  </div>
-                  <div class="well">
-                    <p>ADS</p>
-                  </div>-->
         </div>
     </div>
 </div>

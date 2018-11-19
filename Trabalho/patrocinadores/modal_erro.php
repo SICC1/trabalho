@@ -1,5 +1,5 @@
 <?php
-include_once './form_inserir.php';
+include_once '../cabecalho.php';
 ?>
 <html>
     <head>
@@ -12,7 +12,7 @@ include_once './form_inserir.php';
                         <h4 class="modal-title">Erro! :'(</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Um erro ocorreu ao fazer o cadastro, por favor entre em contato o suporte 
+                        <p>Um erro ocorreu ao fazer a inserção, por favor entre em contato o suporte 
                             ou aguarde o problema ser resolvido.</p>
                     </div>
                     <div class="modal-footer">
@@ -26,7 +26,7 @@ include_once './form_inserir.php';
                 $('#modal_erro').modal('show');
             });
             function redirecionar() {
-                window.location = "form_inserir.php";
+                window.location = "../index.php";
             }
         </script>
     </body>

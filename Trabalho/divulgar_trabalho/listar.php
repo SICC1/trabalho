@@ -38,7 +38,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                 <div class="col-12">
                                     <a><?= $linha['descricao'] ?> </a>
                                 </div>
-
                                 <div class="col-12">
                                     <hr>
                                     <button class="btn btn-primary" type="button" onclick="Mudarestado('minhaDiv<?= $linha['id_trabalho'] ?>')">Comentar</button>
