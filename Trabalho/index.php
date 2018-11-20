@@ -8,7 +8,6 @@ if (estaLogado()) {
     $linha_admin = mysqli_fetch_array($sql_linha);
 }
 ?>
-
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav">
@@ -84,14 +83,14 @@ if (estaLogado()) {
                                 <?= $linha['descricao'] ?>
                             </div>
                         <?php
-                                    if ($linha_admin['admin'] == 2) {
+                                 if(estaLogado() && $linha_admin['admin'] == 2){if ($linha_admin['admin'] == 2) {
                                         ?>
-                                <div class="col-md-1 mb-3">
+                        <div class="col-md-1 mb-3" style="z-index: 1;">
                                         <p>
                                             <a href="./patrocinadores/form_alterar.php?id=<?= $linha['id']; ?>"><img height="15" lang="15" src="img/configurar.png"></a>
                                         </p>
                                     </div>
-                                <?php }
+                        <?php }}
                                 ?>
                         <?php } ?>
                     </div>
@@ -116,11 +115,9 @@ if (estaLogado()) {
 
                 <div class="col-sm-12">
                     <div class="form-row">
-
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="col-sm-2 sidenav">
         </div>

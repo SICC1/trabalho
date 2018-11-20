@@ -47,10 +47,22 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                     O que fazemos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class='dropdown-item' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
+                                    <a class='dropdown-item' href = "<?= $url ?>/divulgar_trabalho/form_inserir.php">Divulgar Trabalhos</a>
                                     <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes.php">Trabalhos solicitados</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Oportunidades
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class='dropdown-item' href = '<?= $url ?>/oportunidades/listar.php'>Oportunidades</a>
+                                    <a class='dropdown-item' href = '<?= $url ?>/oportunidades/form_inserir.php'>Divulgue Oportunidades</a>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class='dropdown-item' href = '<?= $url ?>/oportunidades/form_inserir.php'>Divulgar oportunidades</a>
                                 </div>
                             </li>
                             <li class = 'nav-item'>
@@ -109,6 +121,18 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Oportunidades
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class='dropdown-item' href = '<?= $url ?>/oportunidades/listar.php'>Oportunidades</a>
+                                    <a class='dropdown-item' href = '<?= $url ?>/oportunidades/form_inserir.php'>Divulgue Oportunidades</a>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class='dropdown-item' href = '<?= $url ?>/oportunidades/form_inserir.php'>Divulgar oportunidades</a>
+                                </div>
+                            </li>
                             <li class = 'nav-item'>
                                 <a class = 'nav-link' href = '<?= $url ?>/profissional/perfilProfissional.php'>Perfil</a>
                             </li>
@@ -162,6 +186,9 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                 <a class = "dropdown-item" href = "<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
                                 <a class = "dropdown-item" href = "<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                             </div>
+                        </li>
+                        <li class = 'nav-item'>
+                            <a class = 'nav-link' href = '<?= $url ?>/oportunidades/listar.php'>Oportunidades</a>
                         </li>
                         <li class = "nav-item dropdown">
                             <a class = "nav-link dropdown-toggle" href = "#" id = "navbarDropdown" role = "button" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false">

@@ -36,7 +36,6 @@ $linha = mysqli_fetch_array($resultado);
             </div>
 
             <textarea name="descricao" class="form-control" required><?= $linha['descricao'] ?></textarea>
-<!--<input type="text" name="descricao" class="form-control" placeholder="Descrição" required>-->
         </div>
         <div align="center" class="form-group">
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Salvar alterações</button>

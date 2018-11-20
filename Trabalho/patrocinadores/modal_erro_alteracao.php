@@ -1,5 +1,5 @@
 <?php
-include_once '../index.php';
+include_once '../cabecalho.php';
 ?>
 <html>
     <head>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once '../cabecalho.php';
 ?>
 <html>
@@ -15,7 +15,7 @@ include_once '../cabecalho.php';
                         <p>Inserção de parceiro feito com sucesso!</p>
                     </div>
                     <div class="modal-footer">
-<button type="button" onclick="redirecionar()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        <button type="button" onclick="redirecionar()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -24,12 +24,11 @@ include_once '../cabecalho.php';
             $('#documents').ready(function () {
                 $('#modal_sucesso').modal('show');
             });
-            
             function redirecionar() {
-    window.location = "../index.php";
-}
-            
+                window.location = "../index.php";
+            }
+
         </script>
-        
+
     </body>
 </html>

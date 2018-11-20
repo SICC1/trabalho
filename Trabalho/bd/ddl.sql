@@ -65,6 +65,28 @@ imagem varchar(100),
 descricao varchar(300)
 );
 
+create table arquivos(
+id_arquivo int primary key auto_increment,
+nome_arquivo varchar (100)
+);
+
+
+create table arquivo_oportunidades(
+id_arquivo int,
+id_oportunidades int
+);
+
+create table oportunidades(
+id int primary key auto_increment,
+nome varchar(100),
+arquivo varchar(100),
+descricao varchar(500),
+data_inserida date
+);
+
+
+alter table oportunidades add data_inserida date;
+
 select * from solicitar_trabalho;
 
 alter table parcerias add nome varchar(100);
