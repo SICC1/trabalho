@@ -19,8 +19,6 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
     <link rel="stylesheet" href="<?= $url ?>/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= $url ?>/css_jv/bootstrap-grid.css">
     <link rel="stylesheet" href="<?= $url ?>/css_menu_bootstrap_3.3.7/bootstrap3.3.7.php">
-
-
 </head>
 <body id="meubody">
     <?php

@@ -6,6 +6,7 @@ $username1 = "root";
 $password1 = "";
 $dbname = "trabalho";
 $url = "http://localhost/Trabalho";
+$url_relativo = "C:/xampp/htdocs/Trabalho/conectar.php";
 
 //Produção
 //$url = "http://sicc-tubarao.freevar.com";

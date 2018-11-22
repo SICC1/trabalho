@@ -50,7 +50,9 @@ if (estaLogado()) {
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1>O que há de novo?</h1>
+                        <div class="col-sm-12" align="center">
+                            <h1>O que há de novo?</h1>
+                        </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -70,7 +72,11 @@ if (estaLogado()) {
                 ?>
                 <div class="col-sm-12">
                     <div class="form-row">
-                        <h1>Parceiros</h1>
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <h1>Parceiros</h1>
+                        </div>
+                        <div class="col-4"></div>
                     </div>
                     <div class="form-row">
                         <?php
@@ -78,21 +84,24 @@ if (estaLogado()) {
                             ?>
                             <div class="col-md-5 mb-3">
                                 Nome da empresa: <?= $linha['nome'] ?>
-                                    <br>
+                                <br>
                                 Descrição:
                                 <?= $linha['descricao'] ?>
                             </div>
-                        <?php
-                                 if(estaLogado() && $linha_admin['admin'] == 2){if ($linha_admin['admin'] == 2) {
-                                        ?>
-                        <div class="col-md-1 mb-3" style="z-index: 1;">
+                            <?php
+                            if (estaLogado() && $linha_admin['admin'] == 2) {
+                                if ($linha_admin['admin'] == 2) {
+                                    ?>
+                                    <div class="col-md-1 mb-3" style="z-index: 1;">
                                         <p>
                                             <a href="./patrocinadores/form_alterar.php?id=<?= $linha['id']; ?>"><img height="15" lang="15" src="img/configurar.png"></a>
                                         </p>
                                     </div>
-                        <?php }}
-                                ?>
-                        <?php } ?>
+                                <?php
+                                }
+                            }
+                            ?>
+<?php } ?>
                     </div>
                 </div>
             </div>

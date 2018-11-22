@@ -11,7 +11,7 @@ $resultado = mysqli_query($conexao, $sql);
 $linha = mysqli_fetch_array($resultado);
 ?>
 <div class="col-md-8 container-fluid" id="div-cor2">
-    <form method="post" action="inserir.php">
+    <form method="post" action="inserir.php" enctype="multipart/form-data">
         <input type="hidden" name="id_usuario" value="<?= $_SESSION['id'] ?>">
         <div class="form-row">
             <div class="col-md-4 mb-3">
@@ -23,12 +23,16 @@ $linha = mysqli_fetch_array($resultado);
             </div>
         </div>
         <div class="row">
-            <div class="col-md-11">
+            <div class="col-md-5">
                 <label>Descrição:</label>
             </div>
             <div class="col-md-1">
-                <a href="">Anexo</a>
+                <label>Anexo:</label>
             </div>
+            <div class="col-md-6"> 
+                <input type="file" name="arquivo" >
+            </div>
+
             <textarea name="descricao" class="form-control" placeholder="Descrição..." required></textarea>
 <!--<input type="text" name="descricao" class="form-control" placeholder="Descrição" required>-->
         </div>

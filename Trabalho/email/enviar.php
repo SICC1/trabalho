@@ -39,10 +39,10 @@ $mail->AddAddress("email@gmail.com");
 
  if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
-//    header('Location: modal_erro.php');
+    header('Location: modal_erro.php');
  } else {
     echo "Message has been sent";
-//    header('Location: modal_sucesso.php');
+    header('Location: modal_sucesso.php');
  }
 //$mail = new PHPMailer();
 //$mail->isSMTP();

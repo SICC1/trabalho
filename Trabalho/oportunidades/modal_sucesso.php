@@ -25,7 +25,7 @@ include_once '../cabecalho.php';
                 $('#modal_sucesso').modal('show');
             });
             function redirecionar() {
-                window.location = "../index.php";
+                window.location = "listar.php";
             }
 
         </script>
