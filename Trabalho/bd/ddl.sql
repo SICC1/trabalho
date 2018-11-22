@@ -76,6 +76,7 @@ id_arquivo int,
 id_oportunidades int
 );
 
+
 create table oportunidades(
 id int primary key auto_increment,
 nome varchar(100),

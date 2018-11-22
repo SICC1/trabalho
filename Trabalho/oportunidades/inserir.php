@@ -8,7 +8,7 @@ $descricao = $_POST['descricao'];
 if(isset($_FILES['arquivo'])){
     $extencao = strtolower(substr($_FILES['arquivo']['name'], -4));
     $novo_nome = md5(time()) . $extencao;
-    $diretorio = "$url/upload/";
+    $diretorio = "$url_relativo/uploads/";
     
     move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$novo_nome);
 }
