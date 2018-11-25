@@ -22,47 +22,42 @@ $message = "
     <p><b>Mensagem: $descricao</b></p>
 ";
 
-$mail = new PHPMailer(); // create a new object
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
-$mail->IsHTML(true);
-$mail->Username = "siccsistema@gmail.com";
-$mail->Password = "sicc12345";
-$mail->SetFrom($email);
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = TRUE;
+$mail->SMTPDebug = 1;
+$mail->SMTPAutoTLS = FALSE;
+$mail->SMTPSecure = 'ssl';
+$mail->Username = 'siccsistema@gmail.com';
+$mail->Password = 'sicc12345';
+$mail->Port = 465;
+$mail->addAddress($email_destinatario, $nome_usuario);
+$mail->setFrom($email_destinatario);
+$mail->addReplyTo($email);
+$mail->isHTML();
 $mail->Subject = 'Sistema de contato com o administrador';
 $mail->Body = $message;
-$mail->AddAddress("email@gmail.com");
 
- if(!$mail->Send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-    header('Location: modal_erro.php');
- } else {
-    echo "Message has been sent";
-    header('Location: modal_sucesso.php');
- }
-//$mail = new PHPMailer();
-//$mail->isSMTP();
-//$mail->Host = 'smtp.gmail.com';
-//$mail->SMTPAuth = TRUE;
-//$mail->SMTPDebug = 1;
-//$mail->SMTPAutoTLS = FALSE;
-//$mail->SMTPSecure = 'ssl';
-//$mail->Username = 'siccsistema@gmail.com';
-//$mail->Password = 'sicc12345';
-//$mail->Port = 465;
-//$mail->addAddress($email_destinatario, $nome_usuario);
-//$mail->setFrom($email_destinatario);
-//$mail->addReplyTo($email);
-//$mail->isHTML();
+
+//$mail = new PHPMailer(); // create a new object
+//$mail->IsSMTP(); // enable SMTP
+//$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+//$mail->SMTPAuth = true; // authentication enabled
+//$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+//$mail->Host = "smtp.gmail.com";
+//$mail->Port = 465; // or 587
+//$mail->IsHTML(true);
+//$mail->Username = "siccsistema@gmail.com";
+//$mail->Password = "sicc12345";
+//$mail->SetFrom($email);
 //$mail->Subject = 'Sistema de contato com o administrador';
 //$mail->Body = $message;
-//
-//if (!$mail->send()) {
-//    header('Location: modal_erro.php');
-//} else {
-//    header('Location: modal_sucesso.php');
-//}
+//$mail->AddAddress("email@gmail.com");
+
+if (!$mail->send()) {
+    header('Location: modal_erro.php');
+} else {
+    header('Location: modal_sucesso.php');
+}
+

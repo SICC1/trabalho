@@ -116,12 +116,10 @@ if (estaLogado()) {
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-
                     </div>
                 </div>
             </div>
             <div class="col-12">
-
                 <div class="col-sm-12">
                     <div class="form-row">
                     </div>
@@ -132,6 +130,8 @@ if (estaLogado()) {
         </div>
     </div>
 </div>
+<div class="col-12">
 <?php
 include_once 'rodape.php';
 ?>
+</div>

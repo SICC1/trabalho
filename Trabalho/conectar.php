@@ -10,7 +10,7 @@ $url_relativo = "C:/xampp/htdocs/Trabalho";
 
 //Produção
 //$url = "http://sicc-tubarao.freevar.com";
-//$url_relativo = "/home/vhosts/sicc-tubarao.freevar.com/"
+//$url_relativo = "/home/vhosts/sicc-tubarao.freevar.com/";
 //$localhost = "localhost";
 //$username1 = "1123229";
 //$password1 = "sicc12345";

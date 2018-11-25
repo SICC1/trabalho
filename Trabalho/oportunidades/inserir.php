@@ -5,23 +5,35 @@ include_once '../conectar.php';
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];
 
+$sql = "insert into oportunidades (nome, descricao, data_inserida) values ('$nome', '$descricao', now())";
+echo $sql . "<br>";
+
+$id_oportunidades = mysqli_query($conexao, $sql);
+$retorno_id_oportunidades = mysqli_insert_id($conexao);
+
+echo $retorno_id_oportunidades . "<br>";
 if(isset($_FILES['arquivo'])){
     $extencao = strtolower(substr($_FILES['arquivo']['name'], -4));
     $novo_nome = md5(time()) . $extencao;
     $diretorio = "$url_relativo/uploads/";
     
     move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$novo_nome);
+    
+    $sql_arquivo = "insert into arquivos (nome_arquivo) values ('$novo_nome')";
+    $recurso_arquivo = mysqli_query($conexao, $sql_arquivo);
+    $retorno_id_arquivo = mysqli_insert_id($conexao);
+    echo 'id_arquivo: ' . $retorno_id_arquivo;
+    
+    $sql_arquivo_oportunidades = "insert into arquivo_oportunidades(id_arquivo, id_oportunidades) values ($retorno_id_arquivo, "
+            . "$retorno_id_oportunidades)";
+    mysqli_query($conexao, $sql_arquivo_oportunidades);
 }
-$sql = "insert into oportunidades (nome, descricao, data_inserida, arquivo) values ('$nome', '$descricao', now(), '$novo_nome')";
 
-echo $sql;
-//mysqli_query($conexao, $sql);
-//
-//if (mysqli_affected_rows($conexao) > 0) {
-//    header('Location: modal_sucesso.php');
-//} else {
-//    header('Location: modal_erro.php');
-//}
+if (mysqli_affected_rows($conexao) > 0) {
+    header('Location: modal_sucesso.php');
+} else {
+    header('Location: modal_erro.php');
+}
 
 
 

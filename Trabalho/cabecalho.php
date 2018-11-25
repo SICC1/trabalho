@@ -92,8 +92,8 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                     </div>
                 </div>
             </nav>
-        <?php } else {
-            ?>
+    <?php } else {
+        ?>
             <!--Navigation -->
             <nav class = 'navbar navbar-expand-lg navbar-light bg-light static-top' id="cor-menu">
                 <div class = 'container'>
@@ -158,10 +158,10 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                 </div>
             </nav>
 
-            <?php
-        }
-    } else {
-        ?>
+        <?php
+    }
+} else {
+    ?>
         <!--Navigation -->
         <nav class = 'navbar navbar-expand-lg navbar-light bg-light static-top' id = "cor-menu">
             <div class = 'container'>
@@ -205,8 +205,8 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                 </div>
             </div>
         </nav>
-        <?php
-    }
-    ?>
+    <?php
+}
+?>
     <script src="<?= $url ?>/css_jv/jquery.min.js"></script>
     <script src="<?= $url ?>/css_jv/bootstrap.bundle.min.js"></script>

@@ -9,3 +9,7 @@ include '../cabecalho.php';
 
 <?php
 include '../rodape.php';
+
+        function estaLogado() {
+    return isset($_SESSION['username']);
+}

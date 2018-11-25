@@ -25,11 +25,28 @@ $linha_oportunidades = mysqli_fetch_array($resultado_oportunidades);
             </div>
         </div>
         <div class="row">
-            <div class="col-md-11">
+            <div class="col-md-9">
                 <label>Descrição:</label>
             </div>
             <div class="col-md-1">
                 <a href="">Anexo</a>
+            </div>
+            <div class="col-md-2">
+                <?php
+                        $selecao = "SELECT arquivos.* FROM arquivos "
+                                . "INNER JOIN arquivo_oportunidades "
+                                . "ON arquivos.id_arquivo = arquivo_oportunidades.id_arquivo "
+                                . "WHERE arquivo_oportunidades.id_oportunidades = $id;";
+                        $retorno = mysqli_query($conexao, $selecao);
+                        $linha_arquivo = mysqli_fetch_array($retorno);
+                        
+                        $nome_arquivo = $linha_arquivo['nome_arquivo'];
+                        if($linha_arquivo['id_arquivo'] != 0){ ?>
+                <a href="deletar_anexo.php?id=<?= $linha_arquivo['id_arquivo'] ?>&id_pagina=<?= $id ?>">Deletar anexo</a>
+                        <?php
+                        }
+                        ?>
+                
             </div>
             <textarea name="descricao" class="form-control" placeholder="Descrição..." required><?= $linha_oportunidades['descricao'] ?></textarea>
         </div>
@@ -80,5 +97,4 @@ $linha_oportunidades = mysqli_fetch_array($resultado_oportunidades);
     </div>
 </div>
 <?php
-//include 'listar.php';
 include '../rodape.php';

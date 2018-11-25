@@ -28,7 +28,7 @@ create table trabalho(
 id int primary key auto_increment,
 id_usuario int references usuario(id),
 nome varchar(100),
-descricao varchar(100),
+descricao varchar(1000),
 data_trab datetime
 );
 
@@ -41,7 +41,6 @@ email varchar(100),
 descricao varchar(300),
 data_inserida datetime
 );
-
 
 create table solicitar_trabalho(
 id int primary key auto_increment,
@@ -76,6 +75,18 @@ id_arquivo int,
 id_oportunidades int
 );
 
+select * from arquivos; 
+
+
+SELECT arquivos.*, arquivo_oportunidades.* FROM arquivos 
+INNER JOIN arquivo_oportunidades ON arquivos.id_arquivo = arquivo_oportunidades.id_arquivo 
+WHERE arquivo_oportunidades.id_oportunidades = 8;
+
+SELECT arquivos.* FROM arquivos 
+INNER JOIN arquivo_oportunidades ON arquivos.id_arquivo = arquivo_oportunidades.id_arquivo 
+WHERE arquivo_oportunidades.id_oportunidades = 9;
+
+SELECT * FROM arquivo_oportunidades;
 
 create table oportunidades(
 id int primary key auto_increment,
@@ -84,7 +95,7 @@ arquivo varchar(100),
 descricao varchar(500),
 data_inserida date
 );
-
+INSERT INTO usuario (id, username, password, admin) VALUES (NULL, 'admin', '123', '2');
 
 alter table oportunidades add data_inserida date;
 
@@ -145,7 +156,7 @@ DELETE FROM usuario, profissional USING usuario, profissional WHERE usuario.id =
 
 select now();
 
-
+insert into arquivo_oportunidades(id_arquivo, id_oportunidades) values (4, 8);
 SELECT * FROM solicitar_trabalho WHERE solicitar_trabalho.atendido IS NULL;
 
 select current_time();
@@ -167,3 +178,5 @@ update solicitar_trabalho set nome='IagoRa', sobrenome='Ramos dos Santos', celul
 nome_trabalho='Não sei trocar a tomada da cozinha', tipo='Elétrico', 
 descricao='Não estou conseguindo trocar a tomada da cozinha, não sei se é para usar
  chave de fenda ou philips.' where id = 1;
+
+select * from arquivo_oportunidades;
