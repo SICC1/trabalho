@@ -75,8 +75,8 @@ id_arquivo int,
 id_oportunidades int
 );
 
-select * from arquivos; 
-
+select * from profissional; 
+select * from usuario; 
 
 SELECT arquivos.*, arquivo_oportunidades.* FROM arquivos 
 INNER JOIN arquivo_oportunidades ON arquivos.id_arquivo = arquivo_oportunidades.id_arquivo 

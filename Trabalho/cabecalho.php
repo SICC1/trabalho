@@ -45,8 +45,8 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                     O que fazemos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class='dropdown-item' href = "<?= $url ?>/divulgar_trabalho/form_inserir.php">Divulgar Trabalhos</a>
-                                    <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                    <a class='dropdown-item' href = "<?= $url ?>/divulgar_trabalho/form_inserir.php">Divulgar Pesquisa</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Pesquisas</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes.php">Trabalhos solicitados</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                                 </div>
@@ -113,8 +113,8 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                     O que fazemos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class='dropdown-item' href = '<?= $url ?>/divulgar_trabalho/form_inserir.php'>Divulgar Trabalhos</a>
-                                    <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                    <a class='dropdown-item' href = "<?= $url ?>/divulgar_trabalho/form_inserir.php">Divulgar Pesquisa</a>
+                                    <a class="dropdown-item" href="<?= $url ?>/divulgar_trabalho/listar.php">Pesquisas</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes.php">Trabalhos solicitados</a>
                                     <a class="dropdown-item" href="<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                                 </div>
@@ -181,7 +181,7 @@ include_once 'C:/xampp/htdocs/Trabalho/conectar.php';
                                 O que fazemos
                             </a>
                             <div class = "dropdown-menu" aria-labelledby = "navbarDropdown">
-                                <a class = "dropdown-item" href = "<?= $url ?>/divulgar_trabalho/listar.php">Trabalhos divulgados</a>
+                                <a class = "dropdown-item" href = "<?= $url ?>/divulgar_trabalho/listar.php">Pesquisas</a>
                                 <a class = "dropdown-item" href = "<?= $url ?>/solicitar_trabalho/solicitacoes_atendidas.php">Solicitações atendidas</a>
                             </div>
                         </li>

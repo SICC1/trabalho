@@ -18,14 +18,12 @@ include '../cabecalho.php';
         while ($linha = mysqli_fetch_array($resultado)) {
             ?>
             <tr>
-            <input type="hidden" name="id" value="<?php $linha[id] ?>">
             <td><?= $linha['nome'] ?></td>
             <td><?= $linha['data_nasc'] ?></td>
             <td><?= $linha['celular'] ?></td>
             <td><?= $linha['profissao'] ?></td>
             <td><?= $linha['depto'] ?></td>
-
-            <div class='modal fade' id='modal_excluir' role="dialog">
+            <div class='modal fade' id="modal_excluir<?= $linha['id_usuario'] ?>" role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -35,13 +33,13 @@ include '../cabecalho.php';
                             <p>Deseja excluir o pedido de cadastro do profissional?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" onclick="modal_excluir()" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                            <button type="button" onclick="modal_excluir<?= $linha['id_usuario'] ?>()" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class='modal fade' id='modal_confirmar' role="dialog">
+            <div class='modal fade' id="modal_confirmar<?= $linha['id_usuario'] ?>" role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -51,44 +49,41 @@ include '../cabecalho.php';
                             <p>Deseja confirmar o pedido de cadastro do profissional?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" onclick="modal_confirmar()" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                            <button type="button" onclick="modal_confirmar<?= $linha['id_usuario'] ?>()" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <td>
+                <a>
+                    <img src="../img/excluir.jpeg" class="img-thumbnail" width="50" onclick="modalExluir<?= $linha['id_usuario'] ?>()"/></a>
+            </td>
+            <td align="center">
+                <a>
+                    <img src="../img/ativar.png" class="img-thumbnail" width="50" onclick="modalConfirmar<?= $linha['id_usuario'] ?>()"/></a>
+            </td>
+            
             <script>
-
-                function modalExluir() {
+                function modalExluir<?= $linha['id_usuario'] ?>() {
                     $('#documents').ready(function() {
-                        $('#modal_excluir').modal('show');
+                        $("#modal_excluir<?= $linha['id_usuario'] ?>").modal('show');
                     });
                 }
-                function modal_excluir() {
+                function modal_excluir<?= $linha['id_usuario'] ?>() {
                     window.location = "excluir.php?id=<?= $linha['id_usuario'] ?>";
                 }
 
-                function modalConfirmar() {
+                function modalConfirmar<?= $linha['id_usuario'] ?>() {
                     $('#documents').ready(function() {
-                        $('#modal_confirmar').modal('show');
+                        $("#modal_confirmar<?= $linha['id_usuario'] ?>").modal('show');
                     });
                 }
-                function modal_confirmar() {
+                function modal_confirmar<?= $linha['id_usuario'] ?>() {
                     window.location = "confirmar.php?id=<?= $linha['id_usuario'] ?>";
                 }
 
             </script>
-
-            <td>
-                <a>
-                    <img src="../img/excluir.jpeg" class="img-thumbnail" width="50" onclick="modalExluir()"/></a>
-            </td>
-
-            <td align="center">
-                <a>
-                    <img src="../img/ativar.png" class="img-thumbnail" width="50" onclick="modalConfirmar()"/></a>
-            </td>
-
             <td><a href="../cadastro_prof/form_alterar.php?id=<?= $linha['id_usuario'] ?>">
                     <img src="../img/alterar.png" class="img-thumbnail" width="50"></a></td>
             </tr>

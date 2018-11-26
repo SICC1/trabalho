@@ -5,7 +5,6 @@ include '../conectar.php';
 
 ini_set("display_errors", true);
 
-
 $username = "'" . $_POST['username'] . "'";
 $password = $_POST['password'];
 $nome = "'" . $_POST['nome'] . "'";
@@ -40,10 +39,7 @@ if ($data_nasc == "''") {
     $data_nasc = 'null';
 }
 
-$username = "'" . $username . "'";
-
-
-$sql_usuario = "insert into usuario (username, password) values ($username, $password)";
+$sql_usuario = "insert into usuario (username, password) values ($username, '$password')";
 
 echo $sql_usuario;
 $recurso_usuario = mysqli_query($conexao, $sql_usuario);

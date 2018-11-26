@@ -14,5 +14,4 @@ if (mysqli_affected_rows($conexao) > 0) {
 } else {
     header('Location: ./modal_erro_confirmar.php');
 }
-
-//header('Location: listar.php');
+header('Location: listar.php');

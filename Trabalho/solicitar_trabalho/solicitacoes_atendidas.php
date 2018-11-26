@@ -17,71 +17,70 @@ $retorno_admin = "select admin from usuario where id = $_SESSION[id]";
 $sql_retorno_admin = mysqli_query($conexao, $retorno_admin);
 $linha_admin = mysqli_fetch_array($sql_retorno_admin);
 ?>
+<div class="row">
+    <div class="col-2" style="background-color: #f1f1f1">
+    </div>
+    <div class="col-8" style="text-align: center">
+        <h1 style="text-decoration: underline">Solicitações atendidas</h1>
+    </div>
+    <div class="col-2" style="background-color: #f1f1f1">
+    </div>
+</div>
 <?php
 while ($linha = mysqli_fetch_array($resultado)) {
     ?>
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-2 sidenav">
-        <!--      <p><a href="#">Link</a></p>
-              <p><a href="#">Link</a></p>
-              <p><a href="#">Link</a></p>-->
-            </div>
-            <div class="col-sm-8 text-left">
-                <div class="container">
+    <div class="row">
+        <div class="col-2" style="background-color: #f1f1f1">
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12">
+                    <input type="hidden" name="id" value="<?= $linha['id'] ?>">
+                    <hr>
                     <div class="row">
+                        <div class="col-9"><h1><?= $linha['nome'] ?></h1></div>
+                        <div class="col-3"><label>Data: </label><?= " " . $linha['data_inserida'] ?></div>
                         <div class="col-12">
-                            <input type="hidden" name="id" value="<?= $linha['id'] ?>">
-                            <hr>
-                            <div class="row">
-                                <div class="col-9"><h1><?= $linha['nome'] ?></h1></div>
-                                <div class="col-3"><label>Data: </label><?= " " . $linha['data_inserida'] ?></div>
-                                <div class="col-12">
-                                    <a><?= $linha['descricao'] ?> </a>
-                                </div>
+                            <a><?= $linha['descricao'] ?> </a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-2" style="background-color: #f1f1f1">
+            <?php
+            if (estaLogado()) {
+                ?>
+                <div class="col-1">
+                    <p>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?= $linha['id'] ?>"><img height="15" lang="15" src="../img/excluir.png"></button>
+                    </p>
+                </div>
+                <div class="modal fade" id="myModal<?= $linha['id'] ?>" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirmar exclusão</h4>
                             </div>
-                            <hr>
+                            <div class="modal-body">
+                                <p>Deseja realmente excluir a solicitação?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" onclick="redicecionar()">Confirmar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                            <script>
+                                function redicecionar() {
+                                    window.location = "excluir_solicitacao_atendidas.php?id=<?= $linha['id'] ?>";
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-2 sidenav">
-                <!--nao terminado-->
                 <?php
-                if (estaLogado()) {
-                    ?>
-                    <div class="col-1">
-                        <p>
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?= $linha['id'] ?>"><img height="15" lang="15" src="../img/excluir.jpeg"></button>
-                        </p>
-                    </div>
-                    <div class="modal fade" id="myModal<?= $linha['id'] ?>" role="dialog">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Confirmar exclusão</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Deseja realmente excluir a solicitação?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" onclick="redicecionar()">Confirmar</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                </div>
-                                <script>
-                                    function redicecionar() {
-                                        window.location = "excluir_solicitacao_atendidas.php?id=<?= $linha['id'] ?>";
-                                    }
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="well">
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
+            }
+            ?>
         </div>
     </div>
     <?php

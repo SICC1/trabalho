@@ -1,7 +1,7 @@
 <?php
 include_once '../cabecalho.php';
 if (estaLogado() == TRUE) {
-
+    
 } else {
     error_reporting(0);
     ini_set("display_errors", 0);
@@ -16,15 +16,36 @@ $retorno_admin = "select admin from usuario where id = $_SESSION[id]";
 $sql_retorno_admin = mysqli_query($conexao, $retorno_admin);
 $linha_admin = mysqli_fetch_array($sql_retorno_admin);
 ?>
+<div class="row" >
+    <div class="col-2" style="background-color: #f1f1f1">
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-12" align="center">
+                <h1>Pesquisas</h1>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <a>O Câmpus Tubarão possui vários grupos de pesquisa. 
+                        Suas pesquisas tomam as mais diversas áreas do conhecimento, 
+                        desde a área de ensino até
+                        as engenharias, dentro do perfil dos cursos ofertados pelo
+                        campus. Reforçando o entrelaçamento entre a pesquisa e o 
+                        ensino.</a>
+                </div>
+                <div class="col-12">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2" style="background-color: #f1f1f1">
+    </div>
+</div>
 <?php
 while ($linha = mysqli_fetch_array($resultado)) {
     ?>
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-2 sidenav">
-        <!--      <p><a href="#">Link</a></p>
-              <p><a href="#">Link</a></p>
-              <p><a href="#">Link</a></p>-->
+        <div class="row">
+            <div class="col-2" style="background-color: #f1f1f1">
             </div>
             <div class="col-sm-8 text-left">
                 <div class="container">
@@ -132,7 +153,6 @@ while ($linha = mysqli_fetch_array($resultado)) {
                                             ?>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <hr>
@@ -140,8 +160,7 @@ while ($linha = mysqli_fetch_array($resultado)) {
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2 sidenav">
-
+            <div class="col-2" style="background-color: #f1f1f1">
                 <?php
                 if ($linha_admin['admin'] == 2) {
                     ?>
@@ -162,13 +181,12 @@ while ($linha = mysqli_fetch_array($resultado)) {
                             <a href="form_alterar.php?id=<?= $linha['id_trabalho']; ?>"><img height="15" lang="15" src="../img/configurar.png"></a>
                         </p>
                     </div>
-                    <div class="well">
+                    <div class="col-2" style="background-color: #f1f1f1">
                     </div>
 
                     <?php
                 }
                 ?>
-
             </div>
         </div>
     </div>
