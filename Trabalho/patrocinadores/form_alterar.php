@@ -11,7 +11,9 @@ $linha = mysqli_fetch_array($query);
     <form method="post" action="alterar.php">
         <input type="hidden" name="id" value="<?= $linha['id'] ?>">
         <div class="row">
-            <h3>Formulário de alteração</h3>
+            <div class="col-12" style="text-align: center">
+                <h1>Formulário de Alteração</h1>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-4 mb-3">

@@ -22,7 +22,7 @@ $linha = mysqli_fetch_array($resultado);
             </div>
             <div class="col-md-6 mb-3">
                 <label>Sobrenome</label>
-                <input type="text" name="sobrenome" class="form-control" value="<?= $linha['sobrenome'] ?>" required>
+                <input type="text" name="sobrenome" class="form-control" value="<?= $linha['sobrenome'] ?>" >
             </div>
         </div>
         <div class="form-row">
@@ -63,25 +63,21 @@ $linha = mysqli_fetch_array($resultado);
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Data de Nasc.</label>
-                <input type="date" name="data_nasc" class="form-control" value="<?= $linha['data_nasc'] ?>" required>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label>Telefone</label>
-                <input type="text" name="telefone" class="form-control" id="validationDefault04" value="<?= $linha['telefone'] ?>" required>
+                <input type="date" name="data_nasc" class="form-control" value="<?= $linha['data_nasc'] ?>" >
             </div>
             <div class="col-md-4 mb-3">
                 <label>Celular</label>
-                <input type="text" name="celular" class="form-control" value="<?= $linha['celular'] ?>" required>
+                <input type="text" name="celular" class="form-control" value="<?= $linha['celular'] ?>" >
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Depto</label>
-                <input type="text" name="depto" class="form-control" value="<?= $linha['depto'] ?>" required>
+                <input type="text" name="depto" class="form-control" value="<?= $linha['depto'] ?>" >
             </div>
             <div class="col-md-4 mb-3">
                 <label>Cargo</label>
-                <input type="text" name="cargo" class="form-control" id="validationDefault04" value="<?= $linha['cargo'] ?>" required>
+                <input type="text" name="cargo" class="form-control" id="validationDefault04" value="<?= $linha['cargo'] ?>" >
             </div>
             <div class="col-md-4 mb-3">
                 <label>Profissão</label>
@@ -95,7 +91,7 @@ $linha = mysqli_fetch_array($resultado);
             </div>
             <div class="col-md-4 mb-3">
                 <label>Endereço</label>
-                <input type="text" name="endereco" class="form-control" id="validationDefault04" value="<?= $linha['endereco'] ?>" required>
+                <input type="text" name="endereco" class="form-control" id="validationDefault04" value="<?= $linha['endereco'] ?>" >
             </div>
         </div>
         <div align="center" class="form-group">

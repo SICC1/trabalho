@@ -4,6 +4,12 @@ include '../cabecalho.php';
 <div class="col-md-8 container-fluid" id="div-cor2">
 
     <form method="post" action="inserir.php">
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <h1>Cadastre-se</h1>
+                <p>Faça parte dessa grande família, não perca tempo, corra.</p>
+            </div>
+        </div>
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Nome<a style="color: red">*</a></label>

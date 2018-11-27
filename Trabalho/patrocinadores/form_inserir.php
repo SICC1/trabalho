@@ -3,7 +3,7 @@ include '../cabecalho.php';
 ?>
 <div class="col-md-8 container-fluid" id="div-cor2">
     <form method="post" action="inserir.php">
-        <div class="row">
+        <div class="row" style="text-align: center">
             <h3>Cadastre sua empresa</h3>
         </div>
         <div class="row">

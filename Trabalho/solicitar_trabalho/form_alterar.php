@@ -3,7 +3,6 @@ include '../cabecalho.php';
 
 $id = $_GET['id'];
 
-
 $sql_solicitacao = "select * from solicitar_trabalho where id = $id";
 
 $retorno = mysqli_query($conexao, $sql_solicitacao);
@@ -13,6 +12,11 @@ $linha = mysqli_fetch_array($retorno);
 <div class="col-md-8 container-fluid" id="div-cor2">
     <form method="post" action="alterar.php">
         <input type="hidden" name="id" value="<?= $linha['id'] ?>">
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <h1>Formulário de Alteração</h1>
+            </div>
+        </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label>Nome</label>

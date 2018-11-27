@@ -16,6 +16,11 @@ $linha = mysqli_fetch_array($resultado);
 <div class="col-md-8 container-fluid" id="div-cor2">
     <form method="post" action="alterar.php">
         <input type="hidden" name="id" value="<?= $linha['id'] ?>">
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <h1>Formulário de Alteração</h1>
+            </div>
+        </div>
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Nome</label>

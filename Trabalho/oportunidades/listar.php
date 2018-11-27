@@ -11,6 +11,8 @@ error_reporting(E_ALL);
         <div class="row">
             <div class="col-12" align="center">
                 <h1>Oportunidades</h1>
+                <p>O IFSC dispõe de vários serviços e oportunidades para a comunidade externa nas 
+                    áreas de pesquisa e extensão. Veja as opções disponíveis:</p>
             </div>
             <div class="col-12">
                 <div class="row">

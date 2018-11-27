@@ -6,6 +6,31 @@ password varchar(100),
 admin int default 0
 );
 
+create table usuario1(
+id int primary key auto_increment,
+username varchar(100) unique ,
+password varchar(100),
+admin int default 0
+);
+
+create table profissional1(
+id int primary key auto_increment,
+id_usuario int references usuario(id),
+profissao varchar(100),
+nome varchar(100),
+sobrenome varchar(100) null,
+cpf varchar(100),
+celular int null,
+depto varchar(100) null,
+data_nasc varchar(100) null,
+email varchar(100) unique,
+cargo varchar(100) null,
+cep varchar(20),
+endereco varchar(100) null,
+sexo varchar(20),
+dia_hora_cadastrado datetime
+);
+
 create table profissional(
 id int primary key auto_increment,
 id_usuario int references usuario(id),
@@ -72,7 +97,15 @@ nome_arquivo varchar (100)
 
 create table arquivo_oportunidades(
 id_arquivo int,
-id_oportunidades int
+id_oportunidades int references
+);
+
+create table oportunidades(
+id int primary key auto_increment,
+nome varchar(100),
+arquivo varchar(100),
+descricao varchar(500),
+data_inserida date
 );
 
 select * from profissional; 
@@ -88,13 +121,7 @@ WHERE arquivo_oportunidades.id_oportunidades = 9;
 
 SELECT * FROM arquivo_oportunidades;
 
-create table oportunidades(
-id int primary key auto_increment,
-nome varchar(100),
-arquivo varchar(100),
-descricao varchar(500),
-data_inserida date
-);
+
 INSERT INTO usuario (id, username, password, admin) VALUES (NULL, 'admin', '123', '2');
 
 alter table oportunidades add data_inserida date;

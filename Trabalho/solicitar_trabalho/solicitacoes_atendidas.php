@@ -22,6 +22,8 @@ $linha_admin = mysqli_fetch_array($sql_retorno_admin);
     </div>
     <div class="col-8" style="text-align: center">
         <h1 style="text-decoration: underline">Solicitações atendidas</h1>
+        <p>Solicitações de usuarios atendidas por profissionais.</p>
+        <hr>
     </div>
     <div class="col-2" style="background-color: #f1f1f1">
     </div>
@@ -35,11 +37,16 @@ while ($linha = mysqli_fetch_array($resultado)) {
         <div class="col-8">
             <div class="row">
                 <div class="col-12">
+                    <?php 
+                    $selecionar_profissional = "select nome from profissional where id = " . $linha['id_profissional'] . "";
+                    $retorno_nome_profissional = mysqli_query($conexao, $selecionar_profissional);
+                    $resultado_nome_profissional = mysqli_fetch_array($retorno_nome_profissional);
+                    ?>
                     <input type="hidden" name="id" value="<?= $linha['id'] ?>">
-                    <hr>
                     <div class="row">
                         <div class="col-9"><h1><?= $linha['nome'] ?></h1></div>
                         <div class="col-3"><label>Data: </label><?= " " . $linha['data_inserida'] ?></div>
+                        <div class="col-12">Nome do profissional: <?= $resultado_nome_profissional['nome'] ?></div>
                         <div class="col-12">
                             <a><?= $linha['descricao'] ?> </a>
                         </div>

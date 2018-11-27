@@ -1,6 +1,5 @@
 <?php
 include_once './cabecalho.php';
-
 if (estaLogado()) {
     $id = $_SESSION['id'];
     $sql = "select * from usuario where id = $id";
@@ -70,7 +69,6 @@ if (estaLogado()) {
     <div class="col-8">
         <div class="col-12">
             <?php
-            include_once './conectar.php';
             $procura = "select * from parcerias";
             $array = mysqli_query($conexao, $procura);
             ?>
